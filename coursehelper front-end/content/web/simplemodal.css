@@ -1,0 +1,15 @@
+/* Overlay */
+#note-overlay {background-color:#000;}
+
+/* Iframe */
+#noteRecordFrame{height: 500px; width: 725px; border:0px;}
+
+/* Container */
+#note-container {background-color: white; padding: 20px 5px 5px 5px;box-shadow: rgb(0, 0, 0) 0px 0px 10px;
+-webkit-box-shadow: rgb(0, 0, 0) 0px 0px 10px;}
+
+#note-container a.modal-close,
+#note-container a.modal-close:link,
+#note-container a.modal-close:active,
+#note-container a.modal-close:visited {color:#999; font-size:18px; font-weight:bold; position:absolute; text-decoration:none; right:8px; top:0px;}
+#note-container a.modal-close:hover {color:#ccc;}

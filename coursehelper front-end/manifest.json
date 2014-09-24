@@ -1,0 +1,61 @@
+{
+  "manifest_version": 2,
+  "name": "Cloud-based Notes",
+  "version": "0.0.1",
+  "description": "A notes shared cloud platform for pdf pages based on pdf.js(version 0.8.1295).",
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
+  "permissions": [
+    "fileBrowserHandler",
+    "webRequest", "webRequestBlocking",
+    "<all_urls>",
+    "tabs",
+    "webNavigation",
+    "storage",
+    "streamsPrivate",
+    "contextMenus"
+  ],
+  "content_scripts": [{
+    "matches": [
+      "http://*/*",
+      "https://*/*",
+      "ftp://*/*",
+      "file://*/*"
+    ],
+    "run_at": "document_start",
+    "js": ["contentscript.js"]
+  }],
+  "file_browser_handlers": [{
+    "id": "open-as-pdf",
+    "default_title": "Open with PDF Viewer",
+    "file_filters": [
+      "filesystem:*.pdf"
+    ]
+  }],
+  "mime_types": [
+    "application/pdf"
+  ],
+  "background": {
+    "page": "pdfHandler.html"
+  },
+  "browser_action": {
+    "default_icon": "icon48.png", 
+    "default_title": "Course Helper", 
+    "default_popup": "popup/index.html"  
+  },
+  "incognito": "split",
+  "web_accessible_resources": [
+    "getFrameId",
+    "content/web/viewer.html",
+    "http:/*",
+    "https:/*",
+    "ftp:/*",
+    "file:/*",
+    "chrome-extension:/*",
+    "filesystem:/*",
+    "drive:*"
+  ]
+}
