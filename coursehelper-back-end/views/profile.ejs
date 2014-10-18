@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>  
+  <title>Profile</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css" >
+  <link rel="stylesheet" href="stylesheets/profile.css" >
+    <link rel="stylesheet" href="stylesheets/redactorstyle.css" >
+    <link rel="stylesheet" href="stylesheets/redactor.css" >
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <h1><img src="/img/icon128.png" id="logo"> 云笔记 <small>Beta版</small></h1>
+      <p id="targetID"><%= targetID %></p>
+  </nav>
+
+  <div id="profile_wrap">
+    <div id="profile_left" class="pull-left">
+      <ul class="nav nav-pills nav-stacked">
+      </ul>
+    </div>
+    <div id="profile_right" class="pull-left">
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="profile">
+        </div>
+
+        <div class="tab-pane fade" id="notes">
+        </div>
+
+        <div class="tab-pane fade" id="concerns">
+        </div>
+
+        <div class="tab-pane fade" id="collects">
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- Modal 编辑-->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                  <h4 class="modal-title" id="editModalLabel">编辑此条笔记/问题</h4>
+              </div>
+              <div class="modal-body">
+                  <form class="form-horizontal" role="form">
+                      <div class="form-group">
+                          <label class="col-sm-3 control-label">课件名:</label>
+                          <div class="col-sm-7">
+                              <p class="form-control-static" id="editPdfName">111111111</p>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-3 control-label">页码:</label>
+                          <div class="col-sm-7">
+                              <p class="form-control-static" id="editPdfPage">111111111</p>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="editNoteTitle" class="col-sm-3 control-label">标题:</label>
+                          <div class="col-sm-7">
+                              <input type="text" class="form-control" id="editNoteTitle" placeholder="请做出修改~">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label class="col-sm-3 control-label">类型:</label>
+                          <div class="col-sm-7">
+                              <label class="radio-inline">
+                                  <input type="radio" name="editNoteType" id="editIsNote" value="0" checked="">笔记
+                              </label>
+                              <label class="radio-inline">
+                                  <input type="radio" name="editNoteType" id="editIsQuestion" value="1">问题
+                              </label>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="editNoteBody" class="col-sm-3 control-label">正文:</label>
+                      </div>
+                  </form>
+                  <div id="page_4">
+                      <textarea id="redactor_content_4" name="content" style="height: 200px;"><p>...</p></textarea>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary" id="saveEdit">保存修改</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+  <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+  <script type="text/javascript" src="javascripts/profile.js"></script>
+  <script type="text/javascript" src="javascripts/BS_API.js"></script>
+  <script type="text/javascript" src="javascripts/redactor.js"></script>
+</body>
+</html>
