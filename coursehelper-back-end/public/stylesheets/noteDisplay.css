@@ -57,9 +57,9 @@ body{
 /*具体某个笔记*/
 #oneNoteDis{
 	display: none;
-	width: 95%;
+	width: 98%;
 	margin: auto; 
-	padding: 10px;
+	padding: 5px;
 }
 .article-title{
     font-size: 20px;

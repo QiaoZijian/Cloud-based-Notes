@@ -5797,6 +5797,15 @@ window.addEventListener('message',function(e) {
 
 
 window.onload = function(){
+  if(localStorage.ifOpen == 1){
+      $("#middle").attr("data","open");
+      $("#wrapRight").css("width","450px");
+      $("body").css("padding-right","465px");
+      $("#middle").find("p").text(">>收起笔记区域>>");
+      var event = document.createEvent('UIEvents');
+      event.initUIEvent('resize', false, false, window, 0);
+      window.dispatchEvent(event);
+  }
   if(('logged' in localStorage) && localStorage.logged == "true"){
     
     var div = document.getElementById("right");
@@ -5813,4 +5822,4 @@ window.onload = function(){
   else{
     alert("由于你还没有登录，所以只能浏览pdf，但看不到别人共享的笔记！")
   }
-}
+};

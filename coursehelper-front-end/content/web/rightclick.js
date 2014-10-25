@@ -81,17 +81,19 @@ $(document).ready(function(){
   $("#middle").click(function(){
     if($(this).attr("data")=="open"){
       $(this).attr("data","close");
-      $("#left").css("width","98%");
-      $("#right").css("width","0%");
+      $("#wrapRight").css("width","0px");
+      $("body").css("padding-right","15px");
       $(this).find("p").text("<<展开笔记区域<<");
+      localStorage.ifOpen = 0;
       var event = document.createEvent('UIEvents');
       event.initUIEvent('resize', false, false, window, 0);
       window.dispatchEvent(event);
     }else{
       $(this).attr("data","open");
-      $("#left").css("width","61%");
-      $("#right").css("width","37%");
+      $("#wrapRight").css("width","450px");
+      $("body").css("padding-right","465px");
       $(this).find("p").text(">>收起笔记区域>>");
+      localStorage.ifOpen = 1;
       var event = document.createEvent('UIEvents');
       event.initUIEvent('resize', false, false, window, 0);
       window.dispatchEvent(event);

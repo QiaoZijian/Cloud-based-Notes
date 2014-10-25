@@ -118,7 +118,7 @@ function displayNotesFunc(notes, whereToDis){
 function fakeDisReply(replys ,note, i){
 	$replyli = $('<li class="media"><a class="pull-left" href="/profile?want='+
 					$("#page_information").data("user_ID")+'" target="_blank">'+
-					'<img class="media-object" src="'+$("#page_information").data("head")+'" alt="'+
+					'<img class="media-object img-rounded" src="'+$("#page_information").data("head")+'" alt="'+
 						$("#page_information").data("user_ID")+'">'+
 				'</a></li>');
 
@@ -159,7 +159,7 @@ function fakeDisComment(thisCommentBox, comment){
 	var commentToUser = findUser(comment.toUserID, UsersThisPage[$("#currentPage").data("currentPage")]);
 	$comment_div = $('<div class="media oneComment" style="display: block;">'+
 						'<a class="pull-left" href="/profile?want='+$("#page_information").data("user_ID")+'" target="_blank">'+
-							'<img class="media-object" src="'+$("#page_information").data("head")+'" alt="'+
+							'<img class="media-object img-rounded" src="'+$("#page_information").data("head")+'" alt="'+
 							$("#page_information").data("user_ID")+'"></a>'+
 						'<div class="media-body">'+
 							'<h5 class="media-heading"><a href="/profile?want='+$("#page_information").data("user_ID")+
@@ -329,7 +329,7 @@ $(document).ready(function(){
 			var replyFromUser = findUser(note.replys[i].fromUserID, UsersThisPage[$("#currentPage").data("currentPage")]);
 
 			$replyli = $('<li class="media"><a class="pull-left" href="/profile?want='+replyFromUser.userID+'" target="_blank">'+
-							'<img class="media-object" src="'+replyFromUser.head+'" alt="'+note.replys[i].fromUserID+'">'+
+							'<img class="media-object img-rounded" src="'+replyFromUser.head+'" alt="'+note.replys[i].fromUserID+'">'+
 						'</a></li>');
 
 			$replyli_body = $('<div class="media-body"><h5 class="media-heading"><a href="/profile?want='+
@@ -377,7 +377,7 @@ $(document).ready(function(){
                 }
                 $comment_div = $('<div class="media oneComment">'+
 									'<a class="pull-left" href="/profile?want='+commentFromUser.userID+'" target="_blank">'+
-										'<img class="media-object" src="'+commentFromUser.head+'" alt="'+
+										'<img class="media-object img-rounded" src="'+commentFromUser.head+'" alt="'+
 										note.replys[i].comments[j].fromUserID+'"></a>'+
 									'<div class="media-body">'+
 										'<h5 class="media-heading"><a href="/profile?want='+commentFromUser.userID+
