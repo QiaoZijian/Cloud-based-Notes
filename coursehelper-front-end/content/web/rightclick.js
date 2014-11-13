@@ -77,7 +77,7 @@ chrome.contextMenus.removeAll(function (){
 //update 后的 入口方式！！
 
 $(document).ready(function(){
-  //可收起笔记区域
+  //可收起笔记区域,且有记录之前用户是收起还是展开
   $("#middle").click(function(){
     if($(this).attr("data")=="open"){
       $(this).attr("data","close");
@@ -127,12 +127,17 @@ $(document).ready(function(){
       //rangy_selection.refresh();
       //rangy.deserializeSelection(String serializedSelection);
       var src = "http://127.0.0.1:8880/noteRecord";
+      //根据展开还是不展开，记笔记目录和body的相对位置不一样
+      var positionX = $("body").width()-735;
+      if(localStorage.ifOpen ==1){
+        positionX += 450;
+      }
       $.modal('<iframe src="' + src + '" id="noteRecordFrame" >', {
         closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
         overlayId: 'note-overlay',
         containerId: 'note-container',
         opacity:5,
-        position: [$("body").height()-535,$("body").width()-750],
+        position: [$("body").height()-540,positionX],
         onShow: function(){
           $("#noteRecordFrame").load(function(){
             var iframedata = new Object();
