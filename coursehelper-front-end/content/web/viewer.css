@@ -1939,35 +1939,70 @@ body{
 }
 
 #left{
+  position: relative;
   min-width: 400px;
   margin-top: 6px;
   height: 98%;
   width:100%;
   float: left;
 }
+#middle {
+    position: absolute;
+    top: 35%;
+    right: -15px;
+    width: 15px;
+    color: #CCCCCC;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    word-wrap: break-word;
+}
 #wrapRight{
     position:fixed;
     z-index: 1001;
     right:3px;
-    width:0px;
     height:98%;
 }
+@media screen and (max-width: 1300px){
+    body{
+        padding-right: 470px;
+    }
+    #wrapRight{
+        width: 450px;
+    }
+}
+@media screen and (min-width: 1301px) and (max-width: 1600px){
+    body{
+        padding-right: 570px;
+    }
+    #wrapRight{
+        width: 550px;
+    }
+}
+@media screen and (min-width: 1601px) and (max-width: 1900px){
+    body{
+        padding-right: 660px;
+    }
+    #wrapRight{
+        width: 640px;
+    }
+}
+@media screen and (min-width: 1901px){
+    body{
+        padding-right: 710px;
+    }
+    #wrapRight{
+        width: 690px;
+    }
+}
+
 #right{
   background-color: #404040;
   width: 100%;
   height: 100%;
   margin-top: 6px;
 }
-#middle {
-  position: absolute;
-  left:-15px;
-  width: 15px;
-  color: #CCCCCC;
-  padding: 250px 0px;
-  cursor: pointer;
-  font-weight: 700;
-  word-wrap: break-word;
-}
+
 #helper{
   width:100%;
   height:100%;

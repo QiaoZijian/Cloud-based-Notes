@@ -81,7 +81,9 @@ $(document).ready(function(){
   $("#middle").click(function(){
     if($(this).attr("data")=="open"){
       $(this).attr("data","close");
-      $("#wrapRight").css("width","0px");
+//      $("#wrapRight").css("width","0px"); 改思路了，把middle扔给left了
+//      $("body").css("padding-right","15px");
+      $("#wrapRight").css("display","none");
       $("body").css("padding-right","15px");
       $(this).find("p").text("<<展开笔记区域<<");
       localStorage.ifOpen = 0;
@@ -90,8 +92,8 @@ $(document).ready(function(){
       window.dispatchEvent(event);
     }else{
       $(this).attr("data","open");
-      $("#wrapRight").css("width","450px");
-      $("body").css("padding-right","465px");
+      $("#wrapRight").css("display","block");
+      $("body").removeAttr("style");
       $(this).find("p").text(">>收起笔记区域>>");
       localStorage.ifOpen = 1;
       var event = document.createEvent('UIEvents');

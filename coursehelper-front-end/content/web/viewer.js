@@ -5797,11 +5797,11 @@ window.addEventListener('message',function(e) {
 
 
 window.onload = function(){
-  if(localStorage.ifOpen == 1){
-      $("#middle").attr("data","open");
-      $("#wrapRight").css("width","450px");
-      $("body").css("padding-right","465px");
-      $("#middle").find("p").text(">>收起笔记区域>>");
+  if(localStorage.ifOpen == 0){
+      $("#middle").attr("data","close");
+      $("#middle").find("p").text("<<展开笔记区域<<");
+      $("#wrapRight").css("display","none");
+      $("body").css("padding-right","15px");
       var event = document.createEvent('UIEvents');
       event.initUIEvent('resize', false, false, window, 0);
       window.dispatchEvent(event);
