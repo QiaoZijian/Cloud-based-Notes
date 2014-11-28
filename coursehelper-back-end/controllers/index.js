@@ -226,9 +226,10 @@ exports.submitNote = function(req,res){
 		});
 		return;
 	}
-	NOTE.URL = req.body.URL;
+    //用decode存，注意
+	NOTE.URL = decodeURI(req.body.URL);
 	console.log(NOTE.URL);
-	if(!NOTE.URL){
+    if(!NOTE.URL){
 		res.send({
 			status:'error',
 			msg:'url异常，请重新打开记笔记页面！'
@@ -379,7 +380,8 @@ exports.submitNote = function(req,res){
 
 //得到一页的笔记
 exports.getNotesOnAPage = function(req,res){
-	var pdf_url = encodeURI(req.query.pdf_url);
+    //都改用decode来作为数据库中存储的url，与submit也保持一致。
+	var pdf_url = decodeURI(req.query.pdf_url);
 	var pdf_page = parseInt(req.query.pdf_page) ;
 	console.log(pdf_url);
 	console.log(pdf_page);

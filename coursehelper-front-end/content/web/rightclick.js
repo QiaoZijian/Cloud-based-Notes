@@ -149,7 +149,12 @@ $(document).ready(function(){
 
             var iframedata = new Object();
             iframedata.key="url" ;
-            iframedata.value=DEFAULT_URL ;
+            //处理传的url可能带有#定位符，而改变URL
+            var IndexPage = DEFAULT_URL.lastIndexOf("#");
+            iframedata.value = DEFAULT_URL;
+            if(IndexPage > 0)
+                iframedata.value=iframedata.value.substring(0,IndexPage);
+            console.log(iframedata.value);
             window.frames[1].postMessage(iframedata,src);
 
             var iframedata = new Object();
@@ -165,6 +170,8 @@ $(document).ready(function(){
             var iframedata = new Object();
             iframedata.key = "about";
             iframedata.value = ''+ rangy_selection ;
+            //需要对有特殊字符的文字做处理，使其能显示在html中
+            iframedata.value = iframedata.value.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
             window.frames[1].postMessage(iframedata,src);
 
             var iframedata = new Object();

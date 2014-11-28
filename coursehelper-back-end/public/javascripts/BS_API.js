@@ -477,9 +477,10 @@ function editNotePro(userID, editedNote, editedWhich){
             $("#"+editedWhich).prev().find("h4>span").text(detaNewNote.type);
             $("#"+editedWhich).prev().find("h4>a>span").text(detaNewNote.title);
             $("#"+editedWhich).find("p:last span:last").text(detaNewNote.abstract);
-            $("#saveEdit").text("修改成功！请稍等..")
+            $("#saveEdit").text("修改成功！请稍等..");
             setTimeout(function () {
                 $('#editModal').modal('hide');
+                $("#saveEdit").text("保存修改").removeAttr("disabled");
             },600);
         },
         error:function(response){
