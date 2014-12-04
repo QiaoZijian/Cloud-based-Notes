@@ -5317,7 +5317,7 @@ function updateViewarea() {
       if(DEFAULT_URL.indexOf("#")>0){
         pdf_url = DEFAULT_URL.substring(0,DEFAULT_URL.indexOf("#")); 
       }
-      iframedata.value = pdf_url ;
+      iframedata.value = decodeURI(pdf_url); //url需要decode进行传输，注意！
       window.frames[0].postMessage(iframedata,ToServer);
 
       if(noteIndex){

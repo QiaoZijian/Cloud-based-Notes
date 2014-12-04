@@ -46,7 +46,7 @@ function displayNotesArray(array, accordionID){
 						  '<div class="panel-heading" data-toggle="collapse" data-parent="#'+accordionID+'" href="#collapse'+i+accordionID+'">'+
 		                    '<h4 class="panel-title">'+
 		                      '<span class="label label-success">'+array[i].type+'</span>&nbsp;&nbsp;'+
-		                      '<a><span>'+array[i].title + '</span><small class="text-primary noteTime">'+
+		                      '<a><span class="noteTitle">'+array[i].title + '</span><small class="text-primary noteTime">'+
 		                            array[i].time+'</small><small class="noteUser"><span class="glyphicon glyphicon-user"></span> <strong>'+
 		                            array[i].from+'</strong></small></a>'+
 		                    '</h4>'+

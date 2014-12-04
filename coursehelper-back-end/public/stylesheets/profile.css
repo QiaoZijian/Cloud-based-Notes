@@ -94,7 +94,10 @@ h4.panel-title{
 }
 .panel-heading{
 	overflow-y: auto;
-} 
+}
+span.noteTitle{
+    line-height: 135%;
+}
 small.noteTime{
 	float: right;
 	margin-right: 10px;

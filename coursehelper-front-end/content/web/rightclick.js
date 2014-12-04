@@ -154,6 +154,7 @@ $(document).ready(function(){
             iframedata.value = DEFAULT_URL;
             if(IndexPage > 0)
                 iframedata.value=iframedata.value.substring(0,IndexPage);
+            iframedata.value = decodeURI(iframedata.value);
             console.log(iframedata.value);
             window.frames[1].postMessage(iframedata,src);
 
