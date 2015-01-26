@@ -34,7 +34,7 @@ function submitNote(userID, URL, pdfName, pageIndex, note){
 }
 
 //得到一页的笔记
-function getNotesOnAPage(pdf_URL, pdf_page, callback){
+function getNotesOnAPage(pdf_URL, pdf_page, callback, recordCallback, userID){
 	//console.log();
 	jQuery.ajax({
 		url:'/getNotesOnAPage',
@@ -44,16 +44,22 @@ function getNotesOnAPage(pdf_URL, pdf_page, callback){
 			//console.log(response);
 			if(response.status == 'success'){
 				UsersThisPage[pdf_page] = response.result.users;
-
-				if(callback){
-					var notes = response.result.notes;
+                var notes = response.result.notes;
+				if(typeof callback == "function"){
 					//按时间排序后		
 					callback(notes,0);
 					//按热度排序后
 					callback(notes,1);
-				}	
+				}
+				scrollBottom = 9999999; //更新完本页信息，本页的scroll就会清空
 
-				scrollBottom = 9999999 //更新完本页信息，本页的scroll就会清空		
+                //记录翻页行为！！
+                if(typeof recordCallback == "function"){
+                    var regCourseID = /courses\/(\d+-*)+\//g ;
+                    var courseID = pdf_URL.match(regCourseID)[0].split("\/")[1];
+                    var pdfName = pdf_URL.substring(pdf_URL.lastIndexOf("\/")+1);
+                    recordCallback(userID, courseID , pdfName, pdf_page, notes.length);
+                }
 			}
 			else{
 				console.log(response.msg);
@@ -84,8 +90,6 @@ function replyToNote(userID, URL, pageIndex, noteIndex, body, callback){
 			fakeDisReply("#replys" ,response.result , response.result.replys.length - 1);
 			//关闭modal
 			$("#closeReplyModal").click();
-			//更新
-			//getNotesOnAPage(URL, pageIndex, callback);
 				
 		},
 		error:function(response){
@@ -143,8 +147,6 @@ function commentToReply(userID, URL, pageIndex, noteIndex, replyIndex, to, body,
 			fakeDisComment("#replys ul li .commentBox:visible" ,response.result);
 			//提交框可以none了
 			$("#replys ul li .commentBox:visible").css("display","none");
-			//更新
-			//getNotesOnAPage(URL, pageIndex, callback);	 
 		},
 		error:function(response){
 			
@@ -292,8 +294,6 @@ function operateNote(userID, URL, pageIndex, noteIndex, which, upordown, callbac
 			}
 			
 			$activeA.removeClass("activeOperation");
-			//更新
-			//getNotesOnAPage(URL, pageIndex, callback);	 
 		},
 		error:function(response){
 			
@@ -332,8 +332,6 @@ function operateReply(userID, URL, pageIndex, noteIndex, replyIndex, upordown, c
 		
 			
 			$activeA.removeClass("activeReplyPraise");
-			//更新
-			//getNotesOnAPage(URL, pageIndex, callback);	 
 		},
 		error:function(response){
 			

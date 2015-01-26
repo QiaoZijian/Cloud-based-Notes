@@ -23,7 +23,7 @@
 
 'use strict';
 //改的，传参需要
-var ToServer = "http://127.0.0.1:8880" ;
+//var ToServer = "http://127.0.0.1:8880" ;  在logRecordExt里定义了
 var FIRSTUPDATE = true ;
 var canSend = false ;
 var noteIndex =null ;
@@ -5310,14 +5310,17 @@ function updateViewarea() {
 //改这里了
   if(canSend){
     if(FIRSTUPDATE){
-
       var iframedata = new Object();
       iframedata.key="url" ;
       var pdf_url=DEFAULT_URL;
       if(DEFAULT_URL.indexOf("#")>0){
         pdf_url = DEFAULT_URL.substring(0,DEFAULT_URL.indexOf("#")); 
       }
-      iframedata.value = decodeURI(pdf_url); //url需要decode进行传输，注意！
+      pdf_url = decodeURI(pdf_url);
+      var regCourseID = /courses\/(\d+-*)+\//g ;
+      localStorage.courseID = pdf_url.match(regCourseID)[0].split("\/")[1] ;
+      localStorage.pdfName = pdf_url.substring(pdf_url.lastIndexOf("\/")+1) ;
+      iframedata.value = pdf_url; //url需要decode进行传输，注意！
       window.frames[0].postMessage(iframedata,ToServer);
 
       if(noteIndex){
@@ -5336,12 +5339,18 @@ function updateViewarea() {
       iframedata.key="head" ;
       iframedata.value=localStorage.head ;
       window.frames[0].postMessage(iframedata,ToServer);
+
       var iframedata = new Object();
       iframedata.key="nickname" ;
       iframedata.value=localStorage.nickname ;
       window.frames[0].postMessage(iframedata,ToServer);
       
       FIRSTUPDATE = false ;
+
+      //记录首次打开
+
+      recordStart(localStorage.id, localStorage.courseID, localStorage.pdfName ,
+                    localStorage.ifOpen, screen.width, navigator.userAgent);
     }
     var iframedata = new Object();
     iframedata.key = "page";
@@ -5817,7 +5826,6 @@ window.onload = function(){
     iframe.onload = function(){
         canSend = true; //iframe加载ok以后，才正确通信
     };
-    
   }
   else{
     alert("由于你还没有登录，所以只能浏览pdf，但看不到别人共享的笔记！")

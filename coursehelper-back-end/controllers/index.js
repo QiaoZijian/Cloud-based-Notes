@@ -1906,3 +1906,245 @@ exports.editNote = function(req,res){
         }
     })
 };
+
+
+/*
+    *****************  这之后是处理行为记录的函数  *****************
+ */
+/*
+     几乎每条记录都会有的参数
+     who: who,
+     when: new Date().getTime(),
+     whatCourse: courseID,
+     whatPDF: pdf,
+     whatPage: page,
+ */
+//记录首次打开某个pdf
+exports.recordStart= function(req, res){
+    var event = req.body;
+    /*
+     这条没有whatPage
+     doWhat: 100,
+     status: [ifDisNotes, bodyWidth, chromeVersion]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF ;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i] ;
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录翻页
+exports.recordPageChange = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 110,
+     status: [notesNum]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage ;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i] ;
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录展开or关闭笔记区域
+exports.recordOperateNoteDis = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 120 or 121,
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage ;
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录切换最新/最热
+exports.recordNewOrHot = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 130 or 131,
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage ;
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录查看了一个笔记
+//这里顺便将点击量存进数据库
+exports.recordViewANote = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 200,
+     status:[一堆，去logRecord.js里看]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            //把点击量++存进数据库
+
+            res.send("ok");
+        }
+    });
+};
+//记录想要进行回复
+exports.recordFakeReply = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 210,
+     status:[一堆，去logRecord.js里看]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录确实进行了回复
+exports.recordRealReply = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 211,
+     status:[一堆，去logRecord.js里看]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录对笔记进行的操作：赞，关注，收藏
+exports.recordOperateReply = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: //220/221: 赞/取消赞
+            //230/231: 关注/取消关注
+            //240/241: 收藏/取消收藏
+     status:[一堆，去logRecord.js里看]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录查阅了谁的资料
+exports.recordViewInfo = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 300
+     status:[viewWho + 一堆note信息]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录打开了笔记记录页面，准备写笔记
+exports.recordFakeNote = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 400
+     status:[relContent]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录打开了笔记记录页面，准备写笔记
+exports.recordRealNote = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 401
+     status:[relContent]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};

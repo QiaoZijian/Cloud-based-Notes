@@ -112,7 +112,6 @@ chrome.webRequest.onHeadersReceived.addListener(
     }
 
     var viewerUrl = getViewerURL(details.url);
-
     // Replace frame with viewer
     // TODO: When http://crbug.com/280464 is fixed, use
     // return { redirectUrl: viewerUrl };

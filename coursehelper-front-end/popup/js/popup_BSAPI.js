@@ -19,7 +19,7 @@ dfsObject = function(ele){
 	else{
 		console.log(ele);
 	}
-}
+};
 
 /*后 加 前*/
 //注册

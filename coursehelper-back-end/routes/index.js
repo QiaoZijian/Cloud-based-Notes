@@ -28,4 +28,20 @@ module.exports = function(app){
 	app.post('/updateProfiles',controller.updateProfiles);	//修改个人信息
     app.post('/deleteNote',controller.deleteNote);	//个人主页中删除笔记
     app.post('/editNote',controller.editNote);	//个人主页中编辑笔记
+
+/*
+    ***************这之后的接口是用于行为记录的********************
+*/
+    app.post('/recordStart',controller.recordStart); //记录首次打开pdf信息
+    app.post('/recordPageChange',controller.recordPageChange); //记录翻页操作
+    app.post('/recordOperateNoteDis',controller.recordOperateNoteDis); //记录展开/关闭笔记区域
+    app.post('/recordNewOrHot',controller.recordNewOrHot); //记录切换最新/最热
+    app.post('/recordViewANote',controller.recordViewANote); //记录查看了一个笔记
+    app.post('/recordFakeReply',controller.recordFakeReply); //记录想要回复笔记
+    app.post('/recordRealReply',controller.recordRealReply); //记录确实回复了笔记
+    app.post('/recordOperateReply',controller.recordOperateReply); //记录对笔记的操作
+    app.post('/recordViewInfo',controller.recordViewInfo); //记录查阅了谁的资料
+    app.post('/recordFakeNote',controller.recordFakeNote); //记录打开了记录页面，准备发布笔记
+    app.post('/recordRealNote',controller.recordRealNote); //记录发布了笔记
+
 };

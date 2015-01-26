@@ -1,3 +1,4 @@
+/*之前的入口，注释掉，先不删除。。。。
 function genericOnClick(info, tab) {
   if(localStorage.logged){
     var rangy_selection = rangy.getSelection();
@@ -73,6 +74,8 @@ chrome.contextMenus.removeAll(function (){
     console.log("'" + context + "' item:" + id);
   }
 });
+*/
+
 
 //update 后的 入口方式！！
 
@@ -90,6 +93,9 @@ $(document).ready(function(){
       var event = document.createEvent('UIEvents');
       event.initUIEvent('resize', false, false, window, 0);
       window.dispatchEvent(event);
+
+      //记录收起笔记区域操作
+      recordOperateNoteDis(localStorage.id, localStorage.courseID, localStorage.pdfName, PDFView.page, 0)
     }else{
       $(this).attr("data","open");
       $("#wrapRight").css("display","block");
@@ -99,6 +105,9 @@ $(document).ready(function(){
       var event = document.createEvent('UIEvents');
       event.initUIEvent('resize', false, false, window, 0);
       window.dispatchEvent(event);
+
+      //记录打开笔记区域操作
+      recordOperateNoteDis(localStorage.id, localStorage.courseID, localStorage.pdfName, PDFView.page, 1)
     }
   });
   
@@ -128,7 +137,7 @@ $(document).ready(function(){
       //rangy使用了他的序列化。
       //rangy_selection.refresh();
       //rangy.deserializeSelection(String serializedSelection);
-      var src = "http://127.0.0.1:8880/noteRecord";
+      var src = ToServer+"/noteRecord";
       //根据展开还是不展开，记笔记目录和body的相对位置不一样
       var positionX = $("body").width()-735;
       if(localStorage.ifOpen ==1){
@@ -155,12 +164,12 @@ $(document).ready(function(){
             if(IndexPage > 0)
                 iframedata.value=iframedata.value.substring(0,IndexPage);
             iframedata.value = decodeURI(iframedata.value);
-            console.log(iframedata.value);
+            //console.log(iframedata.value);
             window.frames[1].postMessage(iframedata,src);
 
             var iframedata = new Object();
             iframedata.key="name" ;
-            iframedata.value=document.title ;
+            iframedata.value=document.title;
             window.frames[1].postMessage(iframedata,src);
 
             var iframedata = new Object();
@@ -182,6 +191,9 @@ $(document).ready(function(){
           });
         }
       });
+
+      //记录打开了这个record页面，准备发布笔记的行为
+      recordFakeNote(localStorage.id, localStorage.courseID, localStorage.pdfName, PDFView.page, ''+ rangy_selection);
     }
     else{
       alert("请登录！");
@@ -189,3 +201,5 @@ $(document).ready(function(){
     return false;
   });
 });
+
+//

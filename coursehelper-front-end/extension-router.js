@@ -76,18 +76,18 @@ limitations under the License.
    * @param {number} tabId ID of tab where the page action will be shown
    * @param {string} url URL to be displayed in page action
    */
-  function showPageAction(tabId, displayUrl) {
-    var url = parseExtensionURL(displayUrl) || parseViewerURL(displayUrl);
-    if (url) {
-      chrome.pageAction.setPopup({
-        tabId: tabId,
-        popup: 'pageActionPopup.html?file=' + url
-      });
-      chrome.pageAction.show(tabId);
-    } else {
-      console.log('Unable to get PDF url from ' + displayUrl);
-    }
-  }
+//  function showPageAction(tabId, displayUrl) {
+//    var url = parseExtensionURL(displayUrl) || parseViewerURL(displayUrl);
+//    if (url) {
+//      chrome.pageAction.setPopup({
+//        tabId: tabId,
+//        popup: 'pageActionPopup.html?file=' + url
+//      });
+//      chrome.pageAction.show(tabId);
+//    } else {
+//      console.log('Unable to get PDF url from ' + displayUrl);
+//    }
+//  }
 
   // TODO(rob): Use declarativeWebRequest once declared URL-encoding is
   //            supported, see http://crbug.com/273589
@@ -110,11 +110,11 @@ limitations under the License.
     })
   }, ['blocking']);
 
-  chrome.runtime.onMessage.addListener(function(message, sender) {
-    if (message === 'showPageAction' && sender.tab) {
-      showPageAction(sender.tab.id, sender.tab.url);
-    }
-  });
+//  chrome.runtime.onMessage.addListener(function(message, sender) {
+//    if (message === 'showPageAction' && sender.tab) {
+//      showPageAction(sender.tab.id, sender.tab.url);
+//    }
+//  });
 
   // When session restore is used, viewer pages may be loaded before the
   // webRequest event listener is attached (= page not found).

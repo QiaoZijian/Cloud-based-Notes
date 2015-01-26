@@ -116,13 +116,13 @@ function displayNotesFunc(notes, whereToDis){
 }
 //假的回复显示
 function fakeDisReply(replys ,note, i){
-	$replyli = $('<li class="media"><a class="pull-left" href="/profile?want='+
+	$replyli = $('<li class="media"><a class="pull-left viewInfo" href="/profile?want='+
 					$("#page_information").data("user_ID")+'" target="_blank">'+
 					'<img class="media-object img-rounded" src="'+$("#page_information").data("head")+'" alt="'+
 						$("#page_information").data("user_ID")+'">'+
 				'</a></li>');
 
-	$replyli_body = $('<div class="media-body"><h5 class="media-heading"><a href="/profile?want='+
+	$replyli_body = $('<div class="media-body"><h5 class="media-heading"><a class="viewInfo" href="/profile?want='+
 						$("#page_information").data("user_ID")+'" target="_blank"><span>'+
 						$("#page_information").data("nickname") +' </span></a><small><time>'+
 						note.replys[i].time +'</time></small></h5><div class="replyBody">'+
@@ -158,14 +158,14 @@ function fakeDisReply(replys ,note, i){
 function fakeDisComment(thisCommentBox, comment){
 	var commentToUser = findUser(comment.toUserID, UsersThisPage[$("#currentPage").data("currentPage")]);
 	$comment_div = $('<div class="media oneComment" style="display: block;">'+
-						'<a class="pull-left" href="/profile?want='+$("#page_information").data("user_ID")+'" target="_blank">'+
+						'<a class="pull-left viewInfo" href="/profile?want='+$("#page_information").data("user_ID")+'" target="_blank">'+
 							'<img class="media-object img-rounded" src="'+$("#page_information").data("head")+'" alt="'+
 							$("#page_information").data("user_ID")+'"></a>'+
 						'<div class="media-body">'+
-							'<h5 class="media-heading"><a href="/profile?want='+$("#page_information").data("user_ID")+
+							'<h5 class="media-heading"><a class="viewInfo" href="/profile?want='+$("#page_information").data("user_ID")+
 							'" target="_blank"><span>'+$("#page_information").data("nickname")+' </span></a><small><time>'+
 							comment.time +'</time></small></h5>'+
-							'<p><a href="/profile?want='+commentToUser.userID+'" target="_blank">@'+commentToUser.nickname+':</a>'+
+							'<p><a class="viewInfo" href="/profile?want='+commentToUser.userID+'" target="_blank">@'+commentToUser.nickname+':</a>'+
 							comment.body +'</p>'+
 						'</div>'+
 						'<div class="text-right commentDis content-meta">'+
@@ -188,7 +188,10 @@ window.addEventListener('message',function (e) {
     if(msg.key=="url"){
     	$dataElement.data("pdf_url",msg.value);
     //	console.log(msg.value);
-	}
+        var regCourseID = /courses\/(\d+-*)+\//g ;
+        $dataElement.data("course_ID",msg.value.match(regCourseID)[0].split("\/")[1]);
+        $dataElement.data("pdf_name",msg.value.substring(msg.value.lastIndexOf("\/")+1));
+    }
 	else if(msg.key == "noteIndex"){
 		maybeNoteIndex = msg.value;
 	}
@@ -212,14 +215,17 @@ window.addEventListener('message',function (e) {
     	if(!$dataElement.data("pdf_page") || $dataElement.data("pdf_page")!= msg.value){
     		$dataElement.data("pdf_page",msg.value);
     		//console.log($dataElement.data("pdf_page"));
-    		getNotesOnAPage($dataElement.data("pdf_url"),$dataElement.data("pdf_page"),displayNotesFunc);
-    	}     	
-    	
+
+    		//获取一页笔记信息,****并记录换页信息，给getnotes这个函数多加一个回调函数****
+            var info = $dataElement.data();
+            getNotesOnAPage(info.pdf_url,info.pdf_page,displayNotesFunc,recordPageChange,info.user_ID);
+        }
+
     }
     else if(msg.key=="update"){
     	//提交之后更新此页
     	//console.log($dataElement.data("pdf_url")+"  " +$dataElement.data("pdf_page"));
-		getNotesOnAPage($dataElement.data("pdf_url"),$dataElement.data("pdf_page"),displayNotesFunc);   	
+		getNotesOnAPage($dataElement.data("pdf_url"),$dataElement.data("pdf_page"),displayNotesFunc);
     }
 	    
 });
@@ -252,15 +258,25 @@ $(document).ready(function(){
 
 //这个函数里面有次页
 	$(document).on("click",".panel .panel-body",function(){
+        var note = $(this).data();
+        $("#oneNoteDis").data(note); //记下来这个note,供记录行为的函数使用
+        //这两个属性需要改数据库，加油
+        note.relContent = "sample related content";
+        note.clickCnt = "sample clickNum";
+        var myID = $("#page_information").data("user_ID");
+        var fromUser = findUser(note.fromUserID, UsersThisPage[$("#page_information").data("pdf_page")]);
+
+        //先记录点过这个笔记，再生成后一页
+        var info = $("#page_information").data();
+        recordViewANote(info.user_ID, info.course_ID, info.pdf_name, info.pdf_page, note);
+
+        //开始生成后一页
 		//console.log($("body").scrollTop());
 		scrollBottom = $("body").height() - $("body").scrollTop() ;
 		$("body").scrollTop(0); //次页保证每次从头开始
 		//别删selection
 		selectionToPDF = null;
 		//生成后面的页面
-		var note = $(this).data();
-		var myID = $("#page_information").data("user_ID");
-		var fromUser = findUser(note.fromUserID, UsersThisPage[$("#page_information").data("pdf_page")]);
 
 		$("#replyTitle").text("回复笔主："+fromUser.nickname);
 		$("#replyTitle").data({noteIndex : note.noteIndex});
@@ -275,11 +291,11 @@ $(document).ready(function(){
 
 		var typeStr = (note.type == 0)?"笔记":"问题";
 		
-		$start = $('<a href="/profile?want='+fromUser.userID+'" target="_blank"><img class="img-rounded pull-left avatar" src="'
+		$start = $('<a class="viewInfo" href="/profile?want='+fromUser.userID+'" target="_blank"><img class="img-rounded pull-left avatar" src="'
 					+fromUser.head+'" alt="'+note.fromUserID+'"></a>'+
 					'<h3 class="article-title"><span class="label label-primary">'+typeStr+'</span><span> '+note.title+'</span></h3>'+
 					'<footer class="content-meta noteFooter">'+
-						'<a href="/profile?want='+fromUser.userID+'" target="_blank"><span class="glyphicon glyphicon-user"></span> '+fromUser.nickname+'</a>'+
+						'<a class="viewInfo" href="/profile?want='+fromUser.userID+'" target="_blank"><span class="glyphicon glyphicon-user"></span> '+fromUser.nickname+'</a>'+
 						'<time><span class="glyphicon glyphicon-calendar"></span> '+note.time+'</time>'+
 						'<a href="#replys"><span class="glyphicon glyphicon-comment"></span> '+note.replys.length+'</a>'+
 					'</footer>');
@@ -328,11 +344,11 @@ $(document).ready(function(){
 		for(var i = 0 ; i < note.replys.length ; i++){
 			var replyFromUser = findUser(note.replys[i].fromUserID, UsersThisPage[$("#currentPage").data("currentPage")]);
 
-			$replyli = $('<li class="media"><a class="pull-left" href="/profile?want='+replyFromUser.userID+'" target="_blank">'+
+			$replyli = $('<li class="media"><a class="pull-left viewInfo" href="/profile?want='+replyFromUser.userID+'" target="_blank">'+
 							'<img class="media-object img-rounded" src="'+replyFromUser.head+'" alt="'+note.replys[i].fromUserID+'">'+
 						'</a></li>');
 
-			$replyli_body = $('<div class="media-body"><h5 class="media-heading"><a href="/profile?want='+
+			$replyli_body = $('<div class="media-body"><h5 class="media-heading"><a class="viewInfo" href="/profile?want='+
 								replyFromUser.userID+'" target="_blank"><span>'+
 								replyFromUser.nickname +' </span></a><small><time>'+
 								note.replys[i].time +'</time></small></h5><div class="replyBody">'+
@@ -376,14 +392,14 @@ $(document).ready(function(){
                     ifMyComment = '';
                 }
                 $comment_div = $('<div class="media oneComment">'+
-									'<a class="pull-left" href="/profile?want='+commentFromUser.userID+'" target="_blank">'+
+									'<a class="pull-left viewInfo" href="/profile?want='+commentFromUser.userID+'" target="_blank">'+
 										'<img class="media-object img-rounded" src="'+commentFromUser.head+'" alt="'+
 										note.replys[i].comments[j].fromUserID+'"></a>'+
 									'<div class="media-body">'+
-										'<h5 class="media-heading"><a href="/profile?want='+commentFromUser.userID+
+										'<h5 class="media-heading"><a class="viewInfo" href="/profile?want='+commentFromUser.userID+
 										'" target="_blank"><span>'+commentFromUser.nickname+' </span></a><small><time>'+
 										note.replys[i].comments[j].time +'</time></small></h5>'+
-										'<p><a href="/profile?want='+commentToUser.userID+'" target="_blank">@'+commentToUser.nickname+':</a>'+
+										'<p><a class="viewInfo" href="/profile?want='+commentToUser.userID+'" target="_blank">@'+commentToUser.nickname+':</a>'+
 										note.replys[i].comments[j].body +'</p>'+
 									'</div>'+
 									'<div class="text-right commentDis content-meta">'+ ifMyComment+
@@ -410,10 +426,6 @@ $(document).ready(function(){
 	});
 	$(document).on("click",".panel .panel-footer .replyA",function(){
 		$(this).parent().prev().click();
-	});
-	$(document).on("click",".panel .panel-footer .concernA",function(){
-		console.log($(this).data());
-		return false;
 	});
 
 	//次页
@@ -569,9 +581,13 @@ $(document).ready(function(){
 		var body = $('#redactor_content_1').getCode();
 		//console.log(note_index);
 		//console.log($dataElement.data("pdf_page"));
-
 		replyToNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, note_index, body, displayNotesFunc);
-		return false;
+
+        //记录确定回复的操作
+        var info = $dataElement.data();
+        var note = $("#oneNoteDis").data();
+        recordRealReply(info.user_ID, info.course_ID, info.pdf_name , page, note);
+        return false;
 	});
 
 	//笔记的赞
@@ -580,12 +596,24 @@ $(document).ready(function(){
 		var page = $dataElement.data("pdf_page");
 		if($("#currentPage").length > 0){
 			page = $("#currentPage").data("currentPage");
-			console.log(page);
+		//	console.log(page);
 		}
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 0, 0, displayNotesFunc);	
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 0, 0, displayNotesFunc);
+
+        //记录对该笔记赞的操作
+        var info = $dataElement.data();
+        var note = $(this).parent().siblings(".panel-body").data(); //如果在外面点的话，note在这里取到
+        if(note){
+            //如果非空，说明在外面点的
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 0 , 0);
+        }else{
+            note = $("#oneNoteDis").data();
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 0 , 0);
+        }
+
 		return false;
 	});
 	//笔记的取消赞
@@ -598,8 +626,19 @@ $(document).ready(function(){
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 0, 1, displayNotesFunc);	
-		return false;
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 0, 1, displayNotesFunc);
+
+        //记录对该笔记取消赞的操作
+        var info = $dataElement.data();
+        var note = $(this).parent().siblings(".panel-body").data(); //如果在外面点的话，note在这里取到
+        if(note){
+            //如果非空，说明在外面点的
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 0 , 1);
+        }else{
+            note = $("#oneNoteDis").data();
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 0 , 1);
+        }
+        return false;
 	});
 
 	//笔记的关注
@@ -612,8 +651,20 @@ $(document).ready(function(){
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 1, 0, displayNotesFunc);	
-		return false;
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 1, 0, displayNotesFunc);
+
+        //记录对该笔记关注的操作
+        var info = $dataElement.data();
+        var note = $(this).parent().siblings(".panel-body").data(); //如果在外面点的话，note在这里取到
+        if(note){
+            //如果非空，说明在外面点的
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 1 , 0);
+        }else{
+            note = $("#oneNoteDis").data();
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 1 , 0);
+        }
+
+        return false;
 	});
 	//笔记的取消关注
 	$(document).on("click",".noNoteConcernA",function(){
@@ -625,8 +676,20 @@ $(document).ready(function(){
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 1, 1, displayNotesFunc);	
-		return false;
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 1, 1, displayNotesFunc);
+
+        //记录对该笔记取消关注的操作
+        var info = $dataElement.data();
+        var note = $(this).parent().siblings(".panel-body").data(); //如果在外面点的话，note在这里取到
+        if(note){
+            //如果非空，说明在外面点的
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 1 , 1);
+        }else{
+            note = $("#oneNoteDis").data();
+            recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 1 , 1);
+        }
+
+        return false;
 	});
 
 	//笔记的收藏
@@ -639,8 +702,14 @@ $(document).ready(function(){
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 2, 0, displayNotesFunc);	
-		return false;
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 2, 0, displayNotesFunc);
+
+        //记录对该笔记收藏的操作，没有外面的接口
+        var info = $dataElement.data();
+        var note = $("#oneNoteDis").data();
+        recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 2 , 0);
+
+        return false;
 	});
 	//笔记的取消收藏
 	$(document).on("click",".noNoteCollectA",function(){
@@ -652,8 +721,14 @@ $(document).ready(function(){
 		$(this).addClass("activeOperation");
 		var noteIndex = $(this).parent().data("noteIndex");
 
-		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 2, 1, displayNotesFunc);	
-		return false;
+		operateNote($dataElement.data("user_ID"), $dataElement.data("pdf_url"), page, noteIndex, 2, 1, displayNotesFunc);
+
+        //记录对该笔记取消收藏的操作，没有外面的接口
+        var info = $dataElement.data();
+        var note = $("#oneNoteDis").data();
+        recordOperateReply(info.user_ID, info.course_ID, info.pdf_name, page, note, 2 , 1);
+
+        return false;
 	});
 
 	//回复的赞
@@ -824,4 +899,40 @@ $(document).ready(function(){
     $("#commentConfirm").on("hidden.bs.modal", function () {
         $(this).find("#commentDelConfirm").removeAttr("disabled").text("确认删除");
     });
+
+
+    //以下是为了记录新加的~
+    //记切换最新/最热时的操作
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+//        e.target // newly activated tab
+//        e.relatedTarget // previous active tab
+        var info = $("#page_information").data();
+        if(e.target.getAttribute("href") == "#hotter"){
+            recordNewOrHot(info.user_ID, info.course_ID, info.pdf_name , info.pdf_page, 1);
+        }else{
+            recordNewOrHot(info.user_ID, info.course_ID, info.pdf_name , info.pdf_page, 0);
+        }
+    });
+    //弹出回复笔主模态框,记录为想要回复
+    $('#replyModal').on('shown.bs.modal', function (e) {
+        console.log(e);
+        var info = $("#page_information").data();
+        var page = info.pdf_page;
+        if($("#currentPage").length > 0){
+            page = $("#currentPage").data("currentPage");
+        }
+        var note = $("#oneNoteDis").data();
+        recordFakeReply(info.user_ID, info.course_ID, info.pdf_name , page, note);
+    });
+    //记录查阅别人资料的行为
+    $(document).on("click","a.viewInfo", function () {
+        var info = $("#page_information").data();
+        var page = info.pdf_page;
+        if($("#currentPage").length > 0){
+            page = $("#currentPage").data("currentPage");
+        }
+        var note = $("#oneNoteDis").data();
+        var viewWho = $(this).attr("href").split("?want=")[1];
+        recordViewInfo(info.user_ID, info.course_ID, info.pdf_name , page, note, viewWho);
+    })
 });

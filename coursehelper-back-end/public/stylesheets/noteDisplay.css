@@ -61,6 +61,9 @@ body{
 	margin: auto; 
 	padding: 5px;
 }
+#currentPage{
+    display: none;
+}
 .article-title{
     font-size: 20px;
     line-height: 1.3;
