@@ -26,12 +26,13 @@ function newerSort(a,b){
 }
 function hotscore(note){
 	var score = 0 ;
+    score += note.clickCnt; //一次点击量1分
 	for(var i = 0 ; i < note.replys.length ; i++){
-		score += 2; //一个回复+2
-		score += note.replys[i].comments.length; //一个评论+1
+		score += 10; //一个回复+10
+		score += note.replys[i].comments.length*2; //一个评论+2
 	}
-	score += note.praises.length*3 ;//一个赞+3
-	score += note.concerns.length*5 ;//一个关注+5
+	score += note.praises.length*12 ;//一个赞+12
+	score += note.concerns.length*15 ;//一个关注+15
 	//console.log(note.title + '  ' + score);
 	return score;
 }
@@ -261,14 +262,15 @@ $(document).ready(function(){
         var note = $(this).data();
         $("#oneNoteDis").data(note); //记下来这个note,供记录行为的函数使用
         //这两个属性需要改数据库，加油
-        note.relContent = "sample related content";
-        note.clickCnt = "sample clickNum";
         var myID = $("#page_information").data("user_ID");
         var fromUser = findUser(note.fromUserID, UsersThisPage[$("#page_information").data("pdf_page")]);
 
         //先记录点过这个笔记，再生成后一页
         var info = $("#page_information").data();
         recordViewANote(info.user_ID, info.course_ID, info.pdf_name, info.pdf_page, note);
+
+        //该笔记增加了点击量
+        clickThisNote(info.user_ID, info.pdf_url, info.pdf_page, note.noteIndex);
 
         //开始生成后一页
 		//console.log($("body").scrollTop());

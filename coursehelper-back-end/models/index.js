@@ -53,8 +53,10 @@ var PDFSchema = new Schema({
             time: {type: String},   //方便前端显示    
             _time: {type: Number},
             relatedRange: {type: String},   //相关区域
+            relatedRangeContent: {type: String},   //相关区域文字内容
             abstract: {type: String},   
-            body: {type: String},     
+            body: {type: String},
+            clickCnt: {type: Number}, //点击量
             praises: [String],  //这三个数组里存的是执行相关动作的用户的ID
             concerns: [String], //↑
             collects: [String], //↑

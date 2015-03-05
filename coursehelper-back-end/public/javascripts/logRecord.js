@@ -40,7 +40,7 @@ function recordPageChange(who, courseID, pdf, page, notesNum){
             status: [notesNum]
         },
         success:function(response){
-            console.log(response);
+           // console.log(response);
         },
         error:function(response){
 
@@ -79,7 +79,7 @@ function recordViewANote(who, courseID, pdf, page, noteInfo){
         from
         title
         type
-        relContent
+        relatedRangeContent
         clickNum
         replyNum
         praiseNum
@@ -99,7 +99,7 @@ function recordViewANote(who, courseID, pdf, page, noteInfo){
             whatPage: page,
             doWhat: 200,
             status: [noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
-                    noteInfo.relContent, noteInfo.clickCnt, noteInfo.replys.length,
+                    noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                     noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
         },
         success:function(response){
@@ -127,7 +127,7 @@ function recordFakeReply(who, courseID, pdf, page, noteInfo){
             whatPage: page,
             doWhat: 210,
             status: [noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
-                noteInfo.relContent, noteInfo.clickCnt, noteInfo.replys.length,
+                noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                 noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
         },
         success:function(response){
@@ -155,7 +155,7 @@ function recordRealReply(who, courseID, pdf, page, noteInfo){
             whatPage: page,
             doWhat: 211,
             status: [noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
-                noteInfo.relContent, noteInfo.clickCnt, noteInfo.replys.length,
+                noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                 noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
         },
         success:function(response){
@@ -196,7 +196,7 @@ function recordOperateReply(who, courseID, pdf, page, noteInfo, which , upOrDown
             whatPage: page,
             doWhat: doWhat,
             status: [noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
-                noteInfo.relContent, noteInfo.clickCnt, noteInfo.replys.length,
+                noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                 noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
         },
         success:function(response){
@@ -225,7 +225,7 @@ function recordViewInfo(who, courseID, pdf, page, noteInfo, viewWho){
             whatPage: page,
             doWhat: 300,
             status: [viewWho, noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
-                noteInfo.relContent, noteInfo.clickCnt, noteInfo.replys.length,
+                noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                 noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
         },
         success:function(response){

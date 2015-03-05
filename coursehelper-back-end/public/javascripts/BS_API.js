@@ -61,6 +61,10 @@ function getNotesOnAPage(pdf_URL, pdf_page, callback, recordCallback, userID){
                     recordCallback(userID, courseID , pdfName, pdf_page, notes.length);
                 }
 			}
+            else if(response.status == 'new'){
+                console.log(response.msg);
+                //console.log(response.result);
+            }
 			else{
 				console.log(response.msg);
 			}
@@ -70,7 +74,25 @@ function getNotesOnAPage(pdf_URL, pdf_page, callback, recordCallback, userID){
 		}
 	});
 }
+//点击某个笔记增加该笔记的点击量
+function clickThisNote(userID, URL, pageIndex, noteIndex){
+    jQuery.ajax({
+        url:'/clickThisNote',
+        type:'post',
+        data:{
+            userID: userID,
+            URL: URL,
+            pageIndex: pageIndex,
+            noteIndex: noteIndex
+        },
+        success:function(response){
+            console.log(response);
+        },
+        error:function(response){
 
+        }
+    });
+}
 //提交对笔主的回复
 function replyToNote(userID, URL, pageIndex, noteIndex, body, callback){
 	jQuery.ajax({

@@ -329,8 +329,10 @@ exports.submitNote = function(req,res){
 				            time: easyTime(now),    
 				            _time: Number(now.getTime()),
 				            relatedRange: NOTE.note.relatedRange,   //相关区域
+                            relatedRangeContent: NOTE.note.relatedRangeContent,
 				            abstract: NOTE.note.abstract,   
-				            body: NOTE.note.body,   
+				            body: NOTE.note.body,
+                            clickCnt: 0,
 				            praises: [],  
 				            concerns: [], 
 				            collects: [], 
@@ -395,10 +397,25 @@ exports.getNotesOnAPage = function(req,res){
 		}
 		else{
 			if(!pdf){
-				res.send({
-					status:'error',
-					msg:'url对应的pdf不存在'
-				});
+                var pdf_name = pdf_url.substring(pdf_url.lastIndexOf("\/")+1);
+                pdf = new pdfModel({
+                    URL:pdf_url,
+                    pdfName:pdf_name
+                });
+                pdf.save(function(err){
+                    if(err){
+                        res.send({
+                            status: 'error',
+                            msg: 'save error'
+                        });
+                    }else{
+                        res.send({
+                            status:'new',
+                            msg:'相应pdf创建成功',
+                            result: pdf
+                        });
+                    }
+                })
 			}
 			else{
 				var pages = pdf.pages;
@@ -438,6 +455,103 @@ exports.getNotesOnAPage = function(req,res){
 	});
 }
 
+exports.clickThisNote = function(req,res){
+    /* userID, URL, pageIndex, noteIndex */
+    var Note = req.body;
+    if(!Note.userID){
+        res.send({
+            status:'error',
+            msg:'您尚未登录！'
+        });
+        return;
+    }
+    if(!Note.URL){
+        res.send({
+            status:'error',
+            msg:'url异常，请重新打开记笔记页面！'
+        });
+        return;
+    }
+    if(!Note.pageIndex || Note.pageIndex<0){
+        res.send({
+            status:'error',
+            msg:'页码异常，请重新打开记笔记页面！'
+        });
+        return;
+    }
+    if(!Note.noteIndex || Note.noteIndex<0){
+        res.send({
+            status:'error',
+            msg:'笔记索引异常，请重新提交'
+        });
+        return;
+    }
+    userModel.findOne({userID: Note.userID}, function (err, user) {
+        if(err){
+            res.send({
+                status: 'error',
+                msg: 'user find error'
+            });
+        }
+        else{
+            if(!user){
+                res.send({
+                    status: 'error',
+                    msg: '该用户不存在'
+                });
+            }
+            else{
+                pdfModel.findOne({URL: Note.URL}, function (err, pdf){
+                    if(err){
+                        res.send({
+                            status: 'error',
+                            msg: 'pdf find error'
+                        });
+                    }
+                    else{
+                        var allPages = pdf.pages;
+                        //console.log(allPages.length);
+                        //console.log(reply.pageIndex);
+                        var targetPageIndex = -1 ;
+                        for(targetPageIndex = 0 ; targetPageIndex < allPages.length ; targetPageIndex++){
+                            if(Note.pageIndex == allPages[targetPageIndex].pageIndex){
+                                break;
+                            }
+                        }
+
+                        var notesAPage = allPages[targetPageIndex].notes ;
+                        var targetNoteIndex = -1 ;
+                        for(targetNoteIndex = 0 ; targetNoteIndex < notesAPage.length ; targetNoteIndex++){
+                            if(Note.noteIndex == notesAPage[targetNoteIndex].noteIndex){
+                                break;
+                            }
+                        }
+                        var targetNote = notesAPage[targetNoteIndex] ;
+
+                        targetNote.clickCnt ++;
+
+                        pdf.save(function (err){
+                            if(err){
+                                console.log(err);
+                                res.send({
+                                    status: 'error',
+                                    msg: 'pdf save error'
+                                });
+                            }
+                            else{
+                                res.send({
+                                    status: 'success',
+                                    msg: '点击记录成功',
+                                    result: targetNote
+                                });
+                            }
+                        })
+                    }
+                })
+            }
+        }
+    })
+}
 //回复某个笔记
 exports.replyToNote = function(req,res){
 	var reply = {};
@@ -1401,6 +1515,7 @@ function arrayQuerySave(queryArray, welldone){
 						type: (targetNote.type==0)?"笔记":"问题",
 						from: targetUser.nickname,
 						time: targetNote.time,
+                        relatedRangeContent: targetNote.relatedRangeContent,
 						abstract: targetNote.abstract,
                         body: targetNote.body
 					});

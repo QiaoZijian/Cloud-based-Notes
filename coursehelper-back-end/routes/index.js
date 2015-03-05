@@ -16,6 +16,7 @@ module.exports = function(app){
 	app.post('/imageUpload',controller.imageUpload);	//图片上传
 	app.post('/fileUpload',controller.fileUpload);	//文件上传
 	app.post('/submitNote',controller.submitNote);	//提交笔记
+    app.post('/clickThisNote',controller.clickThisNote); //点击量操作
 	app.post('/replyToNote',controller.replyToNote);	//回复笔记
 	app.post('/commentToReply',controller.commentToReply);	//评论回复
 	app.post('/operateNote',controller.operateNote);	//操作笔记

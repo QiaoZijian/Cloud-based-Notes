@@ -138,3 +138,8 @@ small.noteUser{
 #editModal .form-group{
     margin-bottom: 10px;
 }
+
+/*暂时的正在建设中的图片*/
+#waitPic{
+    margin-left: 90px;
+}

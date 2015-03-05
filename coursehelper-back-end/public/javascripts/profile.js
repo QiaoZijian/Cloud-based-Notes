@@ -56,6 +56,7 @@ function displayNotesArray(array, accordionID){
 					        '<div class="panel-body">'+
 					          '<p><span class="noteInfo">课件：</span><span>'+array[i].name+'</span></p>'+
 					          '<p><span class="noteInfo">页码：</span><span>'+array[i].pageIndex+'</span></p>'+
+                              '<p><span class="noteInfo">关于：</span><span>'+array[i].relatedRangeContent+'</span></p>'+
 					          '<p><span class="noteInfo">摘要：</span><span>'+array[i].abstract+'</span></p>'+
 					        '</div>'+
 					      '</div>');
@@ -95,6 +96,7 @@ function displayProfile(information){
 					type: string,
 					from: string name,
 					time: ,
+					relatedRangeContent,
 					abstract: ,
 					body:
 		}],
@@ -117,8 +119,12 @@ function displayProfile(information){
 	$concerns_li = $('<li><a href="#concerns"  data-toggle="tab"><span class="glyphicon glyphicon-eye-open"></span>'+
 		'<span class="badge pull-right">'+concerns.length+'</span>&nbsp;&nbsp;'+whose+'的关注</a></li>');
 	$collects_li = $('<li><a href="#collects"  data-toggle="tab"><span class="glyphicon glyphicon-star"></span>'+
-		'<span class="badge pull-right">'+collects.length+'</span>&nbsp;&nbsp;'+whose+'的收藏</a></li>'); 
-	$profile_ul.append($info_li,$notes_li,$concerns_li,$collects_li);
+		'<span class="badge pull-right">'+collects.length+'</span>&nbsp;&nbsp;'+whose+'的收藏</a></li>');
+
+    //敬请期待
+    $statistcs_li = $('<li><a href="#statistics"  data-toggle="tab"><span class="glyphicon glyphicon-wrench"></span>'+
+        '&nbsp;&nbsp;新功能，敬请期待~</a></li>');
+	$profile_ul.append($info_li,$notes_li,$concerns_li,$collects_li,$statistcs_li);
 
 	//右边
 	//个人资料板块

@@ -52,6 +52,7 @@ $(document).ready(
 			note.title = $('#noteTitle').val();
 			note.type = $('input[name="noteType"]:checked').val();
 			note.relatedRange = $allData.data("usr_selection");
+            note.relatedRangeContent = $allData.data("about");
 			note.body = $('#redactor_content').getCode();
             var smallAbstract = $(note.body).text();
             if(smallAbstract.length > 80){
