@@ -805,6 +805,16 @@ $(document).ready(function(){
         }
         noteToEdit.abstract = smallAbstract;
         editNote($(this).data("user_ID"),noteToEdit);
+
+        //记录笔记的编辑操作
+        $dataElement = $("#page_information");
+        var page = $dataElement.data("pdf_page");
+        if($("#currentPage").length > 0){
+            page = $("#currentPage").data("currentPage");
+        }
+        var info = $dataElement.data();
+        recordEdit(info.user_ID, info.course_ID, info.pdf_name, page, noteToEdit);
+
 //      console.log($(this).data());
     });
     //笔记编辑确认恢复modal

@@ -2056,6 +2056,44 @@ exports.recordStart= function(req, res){
         }
     });
 };
+//记录下载某个pdf
+exports.recordDownload= function(req, res){
+    var event = req.body;
+    /*
+     这条没有whatPage
+     doWhat: 140,
+     status: []
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF ;
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+//记录关闭某个pdf
+exports.recordEnd= function(req, res){
+    var event = req.body;
+    /*
+     这条没有whatPage
+     doWhat: 150,
+     status: []
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF ;
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
 //记录翻页
 exports.recordPageChange = function(req, res){
     var event = req.body;
@@ -2185,6 +2223,50 @@ exports.recordOperateReply = function(req, res){
             //230/231: 关注/取消关注
             //240/241: 收藏/取消收藏
      status:[一堆，去logRecord.js里看]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+
+//记录对笔记进行编辑操作
+exports.recordEdit = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 250
+     status:[noteIndex,标题,类型,和正文]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            res.send("ok");
+        }
+    });
+};
+
+//记录对笔记进行删除操作
+exports.recordDelete = function(req, res){
+    var event = req.body;
+    /*
+     doWhat: 260
+     status:[noteIndex]
      */
     var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
         event.whatPDF + "::" + event.whatPage;

@@ -2,18 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9209d269-123b-4cad-959b-b2c985d18fac" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/rightclick.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/support.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/models/index.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/models/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/popup/css/popup.css" afterPath="$PROJECT_DIR$/coursehelper-front-end/popup/css/popup.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" afterPath="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/logs/trace.log" afterPath="$PROJECT_DIR$/coursehelper-back-end/logs/trace.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Cloud-based-Notes.iws" />
@@ -37,75 +36,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="noteDisplay_new.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
+      <file leaf-file-name="logRecordExt.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.153847" vertical-offset="360" max-vertical-offset="18900">
-              <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-              <folding>
-                <marker date="1425542499000" expanded="true" signature="6583:6598" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.137931" vertical-offset="341" max-vertical-offset="2340">
-              <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-              <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2272" max-vertical-offset="3000">
-              <caret line="143" column="22" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logRecord.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5280">
-              <caret line="239" column="50" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.692307" vertical-offset="842" max-vertical-offset="1740">
-              <caret line="56" column="19" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="noteRecord.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1880">
-              <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.461538" vertical-offset="10400" max-vertical-offset="45420">
-              <caret line="544" column="54" selection-start-line="544" selection-start-column="54" selection-end-line="544" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="2900">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -114,8 +49,8 @@
       <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1080">
-              <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1180">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -124,18 +59,62 @@
       <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3980" max-vertical-offset="7340">
-              <caret line="217" column="21" selection-start-line="217" selection-start-column="21" selection-end-line="222" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="6109" max-vertical-offset="7620">
+              <caret line="324" column="143" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BS_API.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="profile.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.931034" vertical-offset="1678" max-vertical-offset="2360">
+              <caret line="107" column="59" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+              <folding>
+                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BS_API.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.191617" vertical-offset="7112" max-vertical-offset="10360">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10360">
               <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="85" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="noteDisplay_new.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.0" vertical-offset="3600" max-vertical-offset="19100">
+              <caret line="193" column="87" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="87" />
+              <folding>
+                <marker date="1425824918000" expanded="false" signature="6583:6598" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logRecord.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4660" max-vertical-offset="6460">
+              <caret line="243" column="58" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45007235" vertical-offset="45049" max-vertical-offset="47040">
+              <caret line="2268" column="22" selection-start-line="2268" selection-start-column="22" selection-end-line="2268" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -169,21 +148,22 @@
         <option value="$PROJECT_DIR$/coursehelper-back-end/views/noteRecord.ejs" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/popup/js/popup_BSAPI.js" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html" />
-        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/noteDisplay.css" />
-        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/rightclick.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/models/index.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/popup/css/popup.css" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css" />
+        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" />
+        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/support.js" />
+        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css" />
       </list>
     </option>
   </component>
@@ -217,7 +197,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -502,6 +481,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -868,13 +848,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.5172415" vertical-offset="600" max-vertical-offset="8680">
-          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/noteDisplay.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5220">
@@ -886,7 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="716" max-vertical-offset="3340">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -897,26 +869,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/rightclick.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1912" max-vertical-offset="2680">
-          <caret line="166" column="14" selection-start-line="166" selection-start-column="14" selection-end-line="166" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1960">
-          <caret line="76" column="39" selection-start-line="76" selection-start-column="25" selection-end-line="76" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-front-end/popup/css/popup.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="559" max-vertical-offset="5320">
           <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,25 +883,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="106208" max-vertical-offset="116760">
-          <caret line="5321" column="75" selection-start-line="5321" selection-start-column="29" selection-end-line="5321" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5280">
-          <caret line="239" column="50" selection-start-line="239" selection-start-column="50" selection-end-line="239" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.692307" vertical-offset="842" max-vertical-offset="1740">
+        <state vertical-scroll-proportion="0.0" vertical-offset="842" max-vertical-offset="1740">
           <caret line="56" column="19" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="19" />
           <folding />
         </state>
@@ -959,26 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.137931" vertical-offset="341" max-vertical-offset="2340">
-          <caret line="39" column="53" selection-start-line="39" selection-start-column="53" selection-end-line="39" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.153847" vertical-offset="360" max-vertical-offset="18900">
-          <caret line="39" column="6" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="6" />
-          <folding>
-            <marker date="1425542499000" expanded="true" signature="6583:6598" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1880">
@@ -987,34 +907,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.461538" vertical-offset="10400" max-vertical-offset="45420">
-          <caret line="544" column="54" selection-start-line="544" selection-start-column="54" selection-end-line="544" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="8680">
+          <caret line="53" column="61" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/support.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2052" max-vertical-offset="2720">
+          <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3096591" vertical-offset="58582" max-vertical-offset="116800">
+          <caret line="2940" column="83" selection-start-line="2940" selection-start-column="23" selection-end-line="2940" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="2900">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="19" max-vertical-offset="1080">
-          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1180">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3980" max-vertical-offset="7340">
-          <caret line="217" column="21" selection-start-line="217" selection-start-column="21" selection-end-line="222" selection-end-column="61" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="6109" max-vertical-offset="7620">
+          <caret line="324" column="143" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.931034" vertical-offset="1678" max-vertical-offset="2360">
+          <caret line="107" column="59" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.191617" vertical-offset="7112" max-vertical-offset="10360">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10360">
           <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="85" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.0" vertical-offset="3600" max-vertical-offset="19100">
+          <caret line="193" column="87" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="87" />
+          <folding>
+            <marker date="1425824918000" expanded="false" signature="6583:6598" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4660" max-vertical-offset="6460">
+          <caret line="243" column="58" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45007235" vertical-offset="45049" max-vertical-offset="47040">
+          <caret line="2268" column="22" selection-start-line="2268" selection-start-column="22" selection-end-line="2268" selection-end-column="22" />
           <folding />
         </state>
       </provider>

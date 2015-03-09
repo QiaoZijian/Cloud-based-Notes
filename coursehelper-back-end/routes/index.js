@@ -34,13 +34,18 @@ module.exports = function(app){
     ***************这之后的接口是用于行为记录的********************
 */
     app.post('/recordStart',controller.recordStart); //记录首次打开pdf信息
+    app.post('/recordDownload',controller.recordDownload);  //记录下载某个pdf
+    app.post('/recordEnd',controller.recordEnd); //记录关闭某个pdf
     app.post('/recordPageChange',controller.recordPageChange); //记录翻页操作
     app.post('/recordOperateNoteDis',controller.recordOperateNoteDis); //记录展开/关闭笔记区域
+
     app.post('/recordNewOrHot',controller.recordNewOrHot); //记录切换最新/最热
     app.post('/recordViewANote',controller.recordViewANote); //记录查看了一个笔记
     app.post('/recordFakeReply',controller.recordFakeReply); //记录想要回复笔记
     app.post('/recordRealReply',controller.recordRealReply); //记录确实回复了笔记
     app.post('/recordOperateReply',controller.recordOperateReply); //记录对笔记的操作
+    app.post('/recordEdit',controller.recordEdit); //记录编辑操作
+    app.post('/recordDelete',controller.recordDelete); //记录删除操作
     app.post('/recordViewInfo',controller.recordViewInfo); //记录查阅了谁的资料
     app.post('/recordFakeNote',controller.recordFakeNote); //记录打开了记录页面，准备发布笔记
     app.post('/recordRealNote',controller.recordRealNote); //记录发布了笔记

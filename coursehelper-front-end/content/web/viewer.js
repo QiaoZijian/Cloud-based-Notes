@@ -224,7 +224,7 @@ function getPDFFileNameFromURL(url) {
       }
     }
   }
-  console.log(suggestedFilename);
+  //console.log(suggestedFilename);
   return suggestedFilename || 'document.pdf';
 }
 
@@ -2937,6 +2937,8 @@ var PDFView = {
       function getDataSuccess(data) {
         var blob = PDFJS.createBlob(data, 'application/pdf');
         downloadManager.download(blob, url, filename);
+        //这里记录一下下载事件
+        recordDownload(localStorage.id, localStorage.courseID, localStorage.pdfName);
       },
       noData // Error occurred try downloading with just the url.
     ).then(null, noData);

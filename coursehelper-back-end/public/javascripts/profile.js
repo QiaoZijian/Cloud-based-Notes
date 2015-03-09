@@ -26,6 +26,15 @@ window.addEventListener("load",function (e){
 	target = $("#targetID").text();
 	getProfiles(target);
 });
+//从pdfurl中得到CourseID
+function getCourseID(URL){
+    var regCourseID = /courses\/(\d+-*)+\//g ;
+    return URL.match(regCourseID)[0].split("\/")[1];
+}
+//从pdfurl中得到pdfname
+function getPdfname(URL) {
+    return URL.substring(URL.lastIndexOf("\/")+1);
+}
 //为之后创建page需要的显示信息做准备
 function displayNULL(str){
 	if(!str){
@@ -312,6 +321,8 @@ $(document).ready(function(){
     //确认删除
     $(document).on("click","#sureDel",function(){
         deleteNote(localStorage.id, whichDelete.URL, whichDelete.pageIndex, whichDelete.noteIndex, whichDelete.deletedID);
+        //记录删除操作
+        recordDelete(localStorage.id, getCourseID(whichDelete.URL), getPdfname(whichDelete.URL), whichDelete.pageIndex, whichDelete.noteIndex);
         $(this).text("删除中...");
         $(this).attr("disabled","disabled");
         return false;
@@ -334,7 +345,7 @@ $(document).ready(function(){
         }
 
         $("#editModal").modal();
-        console.log(whichEdit);
+        //console.log(whichEdit);
         return false;
     });
 
@@ -354,8 +365,11 @@ $(document).ready(function(){
         editedNote.abstract = smallAbstract;
 
         editNotePro(localStorage.id, editedNote, whichEdit.editedID);
+
+        //记录编辑操作
+        recordEdit(localStorage.id, getCourseID(editedNote.URL), getPdfname(editedNote.URL), editedNote.pageIndex, editedNote);
         $(this).text("修改中...");
-        $(this).attr("disabled","disabled")
+        $(this).attr("disabled","disabled");
         return false;
     });
 

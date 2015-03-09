@@ -6,6 +6,10 @@
      在扩展程序那边代码记:
      100: 打开某个pdf
      120/121: 显示/关闭笔记区域(屏幕宽度？)
+
+     140:下载某个pdf
+     150:关闭某个pdf
+
      400: 假发布笔记(相关区域)
 
      在我的页面里记:
@@ -18,6 +22,9 @@
      220/221: 赞/取消赞(该笔记一套相关信息)
      230/231: 收藏/取消收藏(该笔记一套相关信息)
      240/241: 关注/取消关注(该笔记一套相关信息)
+
+     250:编辑某个笔记(该笔记经过编辑的相关信息)
+     260:删除某个笔记(该笔记一套相关信息)
 
      300: 查阅某人资料(谁)
 
@@ -198,6 +205,58 @@ function recordOperateReply(who, courseID, pdf, page, noteInfo, which , upOrDown
             status: [noteInfo.noteIndex, noteInfo.fromUserID, noteInfo.title, noteInfo.type,
                 noteInfo.relatedRangeContent, noteInfo.clickCnt, noteInfo.replys.length,
                 noteInfo.praises.length, noteInfo.concerns.length, noteInfo.collects.length]
+        },
+        success:function(response){
+            console.log(response);
+        },
+        error:function(response){
+
+        }
+    });
+}
+//250: 记录编辑操作
+function recordEdit(who, courseID, pdf, page, noteInfo){
+    /*
+     noteInfo 与上一个一样
+     */
+    console.log(arguments);
+    jQuery.ajax({
+        url:'/recordEdit',
+        type:'post',
+        data:{
+            who: who,
+            when: new Date().getTime(),
+            whatCourse: courseID,
+            whatPDF: pdf,
+            whatPage: page,
+            doWhat: 250,
+            status: [noteInfo.noteIndex, noteInfo.title, noteInfo.type, noteInfo.body]
+        },
+        success:function(response){
+            console.log(response);
+        },
+        error:function(response){
+
+        }
+    });
+}
+//260: 记录删除操作
+function recordDelete(who, courseID, pdf, page, noteIndex){
+    /*
+     noteInfo 与上一个一样
+     */
+    //console.log(arguments);
+    jQuery.ajax({
+        url:'/recordDelete',
+        type:'post',
+        data:{
+            who: who,
+            when: new Date().getTime(),
+            whatCourse: courseID,
+            whatPDF: pdf,
+            whatPage: page,
+            doWhat: 260,
+            status: [noteIndex]
         },
         success:function(response){
             console.log(response);

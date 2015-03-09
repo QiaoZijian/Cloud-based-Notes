@@ -76,7 +76,6 @@ chrome.contextMenus.removeAll(function (){
 });
 */
 
-
 //update 后的 入口方式！！
 
 $(document).ready(function(){
@@ -202,4 +201,7 @@ $(document).ready(function(){
   });
 });
 
-//
+//绑定unload函数，刷新和关闭都会触发，但刷新之后会紧连一个100:start，关闭之后并不会
+window.onunload = function () {
+    recordEnd(localStorage.id, localStorage.courseID, localStorage.pdfName);
+};
