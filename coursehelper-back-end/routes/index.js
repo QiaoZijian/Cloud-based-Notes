@@ -44,10 +44,6 @@ module.exports = function(app){
     app.post('/recordFakeReply',controller.recordFakeReply); //记录想要回复笔记
     app.post('/recordRealReply',controller.recordRealReply); //记录确实回复了笔记
     app.post('/recordOperateReply',controller.recordOperateReply); //记录对笔记的操作
-    app.post('/recordEdit',controller.recordEdit); //记录编辑操作
-    app.post('/recordDelete',controller.recordDelete); //记录删除操作
     app.post('/recordViewInfo',controller.recordViewInfo); //记录查阅了谁的资料
     app.post('/recordFakeNote',controller.recordFakeNote); //记录打开了记录页面，准备发布笔记
-    app.post('/recordRealNote',controller.recordRealNote); //记录发布了笔记
-
 };

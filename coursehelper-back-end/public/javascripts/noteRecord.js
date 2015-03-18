@@ -74,13 +74,6 @@ $(document).ready(
             var iframedata = new Object();
             iframedata.key="closeRecord" ;
 			window.parent.postMessage(iframedata,'*');
-
-            //记录真的发布了笔记
-            var info = $("#usrSelection").data();
-            var regCourseID = /courses\/(\d+-*)+\//g ;
-            var courseID = info.pdf_url.match(regCourseID)[0].split("\/")[1] ;
-            //console.log(info);
-            recordRealNote(info.user_ID, courseID, info.pdf_name, info.pdf_page, info.about);
 		});
 
         //redactor的textarea被点得时候，大框框的边变化，聚焦美观一下。可惜不会

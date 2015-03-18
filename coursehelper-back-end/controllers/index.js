@@ -51,6 +51,15 @@ function timePadZero(number){
 function easyTime(date){
 	return date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+' '+timePadZero(date.getHours())+':'+ timePadZero(date.getMinutes());
 }
+//从pdfurl中得到CourseID
+function getCourseID(URL){
+    var regCourseID = /courses\/(\d+-*)+\//g ;
+    return URL.match(regCourseID)[0].split("\/")[1];
+}
+//从pdfurl中得到pdfname
+function getPdfname(URL) {
+    return URL.substring(URL.lastIndexOf("\/")+1);
+}
 //controls
 exports.index = function(req,res){
 	res.render('index');
@@ -363,10 +372,22 @@ exports.submitNote = function(req,res){
 										});
 									}
 									else{
-										res.send({
-											status: 'success',
-											msg: '笔记发表成功！点击确认关闭。'
-										});
+                                        var event = {};
+                                        event.who =  NOTE.userID;
+                                        event.when = now.getTime();
+                                        event.whatCourse = getCourseID(NOTE.URL);
+                                        event.whatPDF = getPdfname(NOTE.URL);
+                                        event.whatPage = NOTE.pageIndex;
+                                        event.doWhat = 401;
+                                        var enterIndex = NOTE.note.body.indexOf("\n");
+                                        event.status = [note_index, NOTE.note.title,
+                                            NOTE.note.type, NOTE.note.relatedRangeContent, NOTE.note.body.substring(0,enterIndex)];
+                                        recordRealNote(event, function () {
+                                            res.send({
+                                                status: 'success',
+                                                msg: '笔记发表成功！点击确认关闭。'
+                                            });
+                                        });
 									}
 								});
 								
@@ -1899,10 +1920,25 @@ exports.deleteNote = function(req,res){
                                                         msg: results
                                                     })
                                                 }else{
-                                                    res.send({
-                                                        status: 'success',
-                                                        msg: '笔记及其关联删除成功'
-                                                    })
+                                                    //记录删除事件
+                                                    var event = {};
+                                                    event.who = noteToDel.userID;
+                                                    event.when = new Date().getTime();
+                                                    event.whatCourse = getCourseID(noteToDel.URL);
+                                                    event.whatPDF = getPdfname(noteToDel.URL);
+                                                    event.whatPage = noteToDel.pageIndex;
+                                                    event.doWhat = 260;
+                                                    //大部分是noteDeleted，注意
+                                                    event.status = [noteToDel.noteIndex, noteDeleted.title,
+                                                        noteDeleted.type, noteDeleted.body, noteDeleted.clickCnt,
+                                                        noteDeleted.replys.length , noteDeleted.praises.length,
+                                                        noteDeleted.concerns.length, noteDeleted.collects.length];
+                                                    recordDelete(event, function(){
+                                                        res.send({
+                                                            status: 'success',
+                                                            msg: '笔记及其关联删除成功'
+                                                        })
+                                                    });
                                                 }
                                             });
                                     });
@@ -1979,7 +2015,7 @@ exports.editNote = function(req,res){
                             }
                         }
                         //console.log(targetNoteIndex);
-                        //找到了才可以删除
+                        //找到了才可以编辑
                         if(targetNoteIndex < notesAPage.length){
                             var noteWillEdit = notesAPage[targetNoteIndex];
                             noteWillEdit.title = noteToEdit.title;
@@ -1995,15 +2031,31 @@ exports.editNote = function(req,res){
                                     });
                                 }
                                 else{
-                                    res.send({
-                                        status: 'success',
-                                        msg: '编辑成功',
-                                        result: {
-                                            title: noteWillEdit.title,
-                                            type: (noteWillEdit.type==0)?"笔记":"问题",
-                                            abstract: noteWillEdit.abstract,
-                                            body: noteWillEdit.body
-                                        }
+                                    //记录编辑事件
+                                    var event = {};
+                                    event.who = userID;
+                                    event.when = new Date().getTime();
+                                    event.whatCourse = getCourseID(noteToEdit.URL);
+                                    event.whatPDF = getPdfname(noteToEdit.URL);
+                                    event.whatPage = noteToEdit.pageIndex;
+                                    event.doWhat = 250;
+                                    //大部分是noteWillEdit，注意
+                                    var enterIndex = noteToEdit.body.indexOf("\n");
+                                    event.status = [noteWillEdit.noteIndex, noteToEdit.title,
+                                        noteToEdit.type, noteToEdit.body.substring(0, enterIndex), noteWillEdit.clickCnt,
+                                        noteWillEdit.replys.length , noteWillEdit.praises.length,
+                                        noteWillEdit.concerns.length, noteWillEdit.collects.length];
+                                    recordEdit(event , function(){
+                                        res.send({
+                                            status: 'success',
+                                            msg: '编辑成功',
+                                            result: {
+                                                title: noteWillEdit.title,
+                                                type: (noteWillEdit.type==0)?"笔记":"问题",
+                                                abstract: noteWillEdit.abstract,
+                                                body: noteWillEdit.body
+                                            }
+                                        });
                                     });
                                 }
                             })
@@ -2239,49 +2291,6 @@ exports.recordOperateReply = function(req, res){
     });
 };
 
-//记录对笔记进行编辑操作
-exports.recordEdit = function(req, res){
-    var event = req.body;
-    /*
-     doWhat: 250
-     status:[noteIndex,标题,类型,和正文]
-     */
-    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
-        event.whatPDF + "::" + event.whatPage;
-    for(var i = 0; i < event.status.length; i++){
-        logContent += "::" + event.status[i];
-    }
-    logContent += "\n";
-    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
-        if(err){
-            console.error("write log error");
-        }else{
-            res.send("ok");
-        }
-    });
-};
-
-//记录对笔记进行删除操作
-exports.recordDelete = function(req, res){
-    var event = req.body;
-    /*
-     doWhat: 260
-     status:[noteIndex]
-     */
-    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
-        event.whatPDF + "::" + event.whatPage;
-    for(var i = 0; i < event.status.length; i++){
-        logContent += "::" + event.status[i];
-    }
-    logContent += "\n";
-    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
-        if(err){
-            console.error("write log error");
-        }else{
-            res.send("ok");
-        }
-    });
-};
 //记录查阅了谁的资料
 exports.recordViewInfo = function(req, res){
     var event = req.body;
@@ -2324,12 +2333,15 @@ exports.recordFakeNote = function(req, res){
         }
     });
 };
+
+
+//后几个不需要从外界传参，在本js中引用
+
 //记录打开了笔记记录页面，准备写笔记
-exports.recordRealNote = function(req, res){
-    var event = req.body;
+recordRealNote = function(event, callback){
     /*
      doWhat: 401
-     status:[relContent]
+     status:[noteIndex，相关区域，标题，类型，内容]
      */
     var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
         event.whatPDF + "::" + event.whatPage;
@@ -2341,7 +2353,48 @@ exports.recordRealNote = function(req, res){
         if(err){
             console.error("write log error");
         }else{
-            res.send("ok");
+            callback();
+        }
+    });
+};
+//记录对笔记进行编辑操作
+recordEdit = function(event, callback){
+    /*
+     doWhat: 250
+     status:[noteIndex, 标题, 类型, 内容, 点击量, 赞数, 关注数, 收藏数]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            callback();
+        }
+    });
+};
+
+//记录对笔记进行删除操作
+recordDelete = function(event, callback){
+    /*
+     doWhat: 260
+     status:[noteIndex，标题，类型，内容, 点击量, 赞数, 关注数, 收藏数]
+     */
+    var logContent = event.doWhat + "::" + event.when + "::" + event.who + "::" + event.whatCourse + "::" +
+        event.whatPDF + "::" + event.whatPage;
+    for(var i = 0; i < event.status.length; i++){
+        logContent += "::" + event.status[i];
+    }
+    logContent += "\n";
+    fs.appendFile("logs/trace.log",logContent,"utf-8",function(err){
+        if(err){
+            console.error("write log error");
+        }else{
+            callback();
         }
     });
 };

@@ -321,8 +321,6 @@ $(document).ready(function(){
     //确认删除
     $(document).on("click","#sureDel",function(){
         deleteNote(localStorage.id, whichDelete.URL, whichDelete.pageIndex, whichDelete.noteIndex, whichDelete.deletedID);
-        //记录删除操作
-        recordDelete(localStorage.id, getCourseID(whichDelete.URL), getPdfname(whichDelete.URL), whichDelete.pageIndex, whichDelete.noteIndex);
         $(this).text("删除中...");
         $(this).attr("disabled","disabled");
         return false;
@@ -366,8 +364,6 @@ $(document).ready(function(){
 
         editNotePro(localStorage.id, editedNote, whichEdit.editedID);
 
-        //记录编辑操作
-        recordEdit(localStorage.id, getCourseID(editedNote.URL), getPdfname(editedNote.URL), editedNote.pageIndex, editedNote);
         $(this).text("修改中...");
         $(this).attr("disabled","disabled");
         return false;

@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9209d269-123b-4cad-959b-b2c985d18fac" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/rightclick.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/support.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/homepage.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/coursehelper-back-end/logs/trace.log" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/views/index.ejs" afterPath="$PROJECT_DIR$/coursehelper-back-end/views/index.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" afterPath="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" afterPath="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-back-end/logs/trace.log" afterPath="$PROJECT_DIR$/coursehelper-back-end/logs/trace.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" afterPath="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Cloud-based-Notes.iws" />
@@ -36,21 +35,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="logRecordExt.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="2900">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="160" max-vertical-offset="1100">
+              <caret line="47" column="77" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="77" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1180">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1040">
+              <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -59,30 +58,38 @@
       <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6109" max-vertical-offset="7620">
-              <caret line="324" column="143" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7540">
+              <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profile.ejs" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs">
+      <file leaf-file-name="index.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.931034" vertical-offset="1678" max-vertical-offset="2360">
-              <caret line="107" column="59" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
-              <folding>
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-2.4096386" vertical-offset="0" max-vertical-offset="360">
+              <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BS_API.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js">
+      <file leaf-file-name="homepage.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/homepage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10360">
-              <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="85" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.19138756" vertical-offset="0" max-vertical-offset="627">
+              <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="noteDisplayTRY.ejs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/noteDisplayTRY.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.137931" vertical-offset="0" max-vertical-offset="6400">
+              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -91,30 +98,30 @@
       <file leaf-file-name="noteDisplay_new.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0" vertical-offset="3600" max-vertical-offset="19100">
-              <caret line="193" column="87" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="87" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="13826" max-vertical-offset="18920">
+              <caret line="662" column="30" selection-start-line="662" selection-start-column="12" selection-end-line="662" selection-end-column="30" />
               <folding>
-                <marker date="1425824918000" expanded="false" signature="6583:6598" placeholder="..." />
+                <marker date="1426506446000" expanded="true" signature="6583:6598" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logRecord.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4660" max-vertical-offset="6460">
-              <caret line="243" column="58" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1920" max-vertical-offset="48100">
+              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
+      <file leaf-file-name="index.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45007235" vertical-offset="45049" max-vertical-offset="47040">
-              <caret line="2268" column="22" selection-start-line="2268" selection-start-column="22" selection-end-line="2268" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+              <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -151,19 +158,21 @@
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/noteDisplay.css" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/rightclick.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/models/index.js" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/popup/css/popup.css" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js" />
         <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/support.js" />
-        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/views/profile.ejs" />
-        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/routes/index.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js" />
+        <option value="$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js" />
         <option value="$PROJECT_DIR$/coursehelper-back-end/controllers/index.js" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/homepage.css" />
+        <option value="$PROJECT_DIR$/coursehelper-back-end/views/index.ejs" />
       </list>
     </option>
   </component>
@@ -212,122 +221,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="popup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="popup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="popup" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-front-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -461,24 +354,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Cloud-based-Notes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coursehelper-back-end" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -510,14 +385,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -528,14 +395,12 @@
       <option name="showConsoleOnStdOut" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" />
-      <option name="executablePath" />
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
       <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -543,6 +408,16 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaScriptRunConfigurationType" factoryName="Cucumber.js">
+      <option name="cucumberJsArguments" />
+      <option name="executablePath" />
+      <option name="filePath" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -626,17 +501,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="870" max-vertical-offset="1275">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-front-end/popup/js/popup.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="5.647059" vertical-offset="0" max-vertical-offset="4086">
@@ -728,23 +596,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56980056" vertical-offset="0" max-vertical-offset="1040">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/hash.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1000">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/noteDisplayTRY.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6400">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -834,27 +688,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="679">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/popup/js/popup_BSAPI.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2920">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/noteDisplay.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5220">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/noteDisplay.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="716" max-vertical-offset="3340">
@@ -883,27 +716,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="842" max-vertical-offset="1740">
-          <caret line="56" column="19" selection-start-line="56" selection-start-column="18" selection-end-line="56" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/profile.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2272" max-vertical-offset="3000">
           <caret line="143" column="22" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1032" max-vertical-offset="1880">
-          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -911,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="520" max-vertical-offset="8680">
           <caret line="53" column="61" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,39 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2052" max-vertical-offset="2720">
           <caret line="205" column="0" selection-start-line="205" selection-start-column="0" selection-end-line="205" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3096591" vertical-offset="58582" max-vertical-offset="116800">
-          <caret line="2940" column="83" selection-start-line="2940" selection-start-column="23" selection-end-line="2940" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="336" max-vertical-offset="2900">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="439" max-vertical-offset="1180">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6109" max-vertical-offset="7620">
-          <caret line="324" column="143" selection-start-line="324" selection-start-column="143" selection-end-line="324" selection-end-column="143" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -959,42 +741,135 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.931034" vertical-offset="1678" max-vertical-offset="2360">
           <caret line="107" column="59" selection-start-line="107" selection-start-column="59" selection-end-line="107" selection-end-column="59" />
-          <folding>
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="1740">
+          <caret line="72" column="7" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4980">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="32" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/BS_API.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="10360">
-          <caret line="82" column="12" selection-start-line="82" selection-start-column="12" selection-end-line="85" selection-end-column="32" />
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/viewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="20" max-vertical-offset="116800">
+          <caret line="2940" column="83" selection-start-line="2940" selection-start-column="23" selection-end-line="2940" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/content/web/logRecordExt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1139" max-vertical-offset="2920">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-front-end/popup/js/popup_BSAPI.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2920">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/noteDisplay_new.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0" vertical-offset="3600" max-vertical-offset="19100">
-          <caret line="193" column="87" selection-start-line="193" selection-start-column="27" selection-end-line="193" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="13826" max-vertical-offset="18920">
+          <caret line="662" column="30" selection-start-line="662" selection-start-column="12" selection-end-line="662" selection-end-column="30" />
           <folding>
-            <marker date="1425824918000" expanded="false" signature="6583:6598" placeholder="..." />
+            <marker date="1426506446000" expanded="true" signature="6583:6598" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/logRecord.js">
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4660" max-vertical-offset="6460">
-          <caret line="243" column="58" selection-start-line="243" selection-start-column="9" selection-end-line="243" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="416" max-vertical-offset="1100">
+          <caret line="47" column="77" selection-start-line="47" selection-start-column="77" selection-end-line="47" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/models/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1740">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/coursehelper-back-end/controllers/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45007235" vertical-offset="45049" max-vertical-offset="47040">
-          <caret line="2268" column="22" selection-start-line="2268" selection-start-column="22" selection-end-line="2268" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1920" max-vertical-offset="48100">
+          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1040">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/javascripts/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7540">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/noteDisplayTRY.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.137931" vertical-offset="0" max-vertical-offset="6400">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/noteDisplay.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.029940119" vertical-offset="140" max-vertical-offset="5220">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/views/index.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4096386" vertical-offset="0" max-vertical-offset="360">
+          <caret line="10" column="57" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coursehelper-back-end/public/stylesheets/homepage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19138756" vertical-offset="0" max-vertical-offset="627">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
           <folding />
         </state>
       </provider>

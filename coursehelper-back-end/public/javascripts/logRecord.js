@@ -4,31 +4,32 @@
 /*
     *********  用户操作编码  *********
      在扩展程序那边代码记:
-     100: 打开某个pdf
-     120/121: 显示/关闭笔记区域(屏幕宽度？)
+         100: 打开某个pdf（屏幕宽度）
+         120/121: 显示/关闭笔记区域
 
-     140:下载某个pdf
-     150:关闭某个pdf
+         140:下载某个pdf
+         150:关闭某个pdf
 
-     400: 假发布笔记(相关区域)
+         400: 假发布笔记(相关区域)
 
      在我的页面里记:
-     110: 翻页（此时有多少相关笔记？）
-     130/131: 切换查看最新/最热笔记
+         110: 翻页（此时有多少相关笔记？）
+         130/131: 切换查看最新/最热笔记
 
-     200: 查看某个笔记(该笔记一套相关信息)
-     操作某个笔记——
-     210/211: 假/真回复(该笔记一套相关信息)
-     220/221: 赞/取消赞(该笔记一套相关信息)
-     230/231: 收藏/取消收藏(该笔记一套相关信息)
-     240/241: 关注/取消关注(该笔记一套相关信息)
+         200: 查看某个笔记(该笔记一套相关信息)
+         操作某个笔记——
+             210/211: 假/真回复(该笔记一套相关信息)
+             220/221: 赞/取消赞(该笔记一套相关信息)
+             230/231: 关注/取消关注(该笔记一套相关信息)
+             240/241: 收藏/取消收藏(该笔记一套相关信息)
 
-     250:编辑某个笔记(该笔记经过编辑的相关信息)
-     260:删除某个笔记(该笔记一套相关信息)
+         300: 查阅某人资料(谁)
 
-     300: 查阅某人资料(谁)
+     直接在服务器端记：
+         250:编辑某个笔记(该笔记经过编辑的相关信息)
+         260:删除某个笔记(该笔记一套相关信息)
 
-     401: 真发布笔记(相关区域)
+         401: 真发布笔记(绝大部分信息)
  */
 
 //110:翻页
@@ -214,58 +215,6 @@ function recordOperateReply(who, courseID, pdf, page, noteInfo, which , upOrDown
         }
     });
 }
-//250: 记录编辑操作
-function recordEdit(who, courseID, pdf, page, noteInfo){
-    /*
-     noteInfo 与上一个一样
-     */
-    console.log(arguments);
-    jQuery.ajax({
-        url:'/recordEdit',
-        type:'post',
-        data:{
-            who: who,
-            when: new Date().getTime(),
-            whatCourse: courseID,
-            whatPDF: pdf,
-            whatPage: page,
-            doWhat: 250,
-            status: [noteInfo.noteIndex, noteInfo.title, noteInfo.type, noteInfo.body]
-        },
-        success:function(response){
-            console.log(response);
-        },
-        error:function(response){
-
-        }
-    });
-}
-//260: 记录删除操作
-function recordDelete(who, courseID, pdf, page, noteIndex){
-    /*
-     noteInfo 与上一个一样
-     */
-    //console.log(arguments);
-    jQuery.ajax({
-        url:'/recordDelete',
-        type:'post',
-        data:{
-            who: who,
-            when: new Date().getTime(),
-            whatCourse: courseID,
-            whatPDF: pdf,
-            whatPage: page,
-            doWhat: 260,
-            status: [noteIndex]
-        },
-        success:function(response){
-            console.log(response);
-        },
-        error:function(response){
-
-        }
-    });
-}
 //300: 查阅某人资料
 function recordViewInfo(who, courseID, pdf, page, noteInfo, viewWho){
     /*
@@ -289,29 +238,6 @@ function recordViewInfo(who, courseID, pdf, page, noteInfo, viewWho){
         },
         success:function(response){
             console.log(response);
-        },
-        error:function(response){
-
-        }
-    });
-}
-//401: 真的发布笔记
-function recordRealNote(who, courseID, pdf, page, relContent){
-    //console.log(arguments);
-    jQuery.ajax({
-        url:'/recordRealNote',
-        type:'post',
-        data:{
-            who: who,
-            when: new Date().getTime(),
-            whatCourse: courseID,
-            whatPDF: pdf,
-            whatPage: page,
-            doWhat: 401,
-            status: [relContent]
-        },
-        success:function(response){
-              console.log(response);
         },
         error:function(response){
 
