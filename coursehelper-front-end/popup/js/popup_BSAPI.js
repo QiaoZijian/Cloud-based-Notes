@@ -1,5 +1,5 @@
-ServerIP = "http://127.0.0.1:8880";
-
+// 在popup.js中写了
+// ServerIP = "http://127.0.0.1:8880";
 var nickname="" ;
 var head="/attachments/head.jpg" ;
 
@@ -46,6 +46,7 @@ function doReg(account,password,nickname,role,mobile,email){
 				localStorage.nickname = newUser.nickname;
 				localStorage.head = newUser.head;
 				localStorage.role = newUser.role;
+                localStorage.ifOpen = 1;
 
 				chrome.windows.getCurrent(function(w){
 					var wid = w.id ;
@@ -89,6 +90,7 @@ function doLogin(account,password){
 				localStorage.nickname = newUser.nickname;
 				localStorage.head = newUser.head;
 				localStorage.role = newUser.role;
+                localStorage.ifOpen = 1;
 				
 				chrome.windows.getCurrent(function(w){
 					var wid = w.id ;

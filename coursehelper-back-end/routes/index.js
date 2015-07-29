@@ -1,7 +1,7 @@
 //the routes only
 var controller = require('../controllers/index.js');
 module.exports = function(app){
-	app.get('/',controller.index); //大白纸
+	app.get('/',controller.index); //主页
 	app.get('/noteRecord',controller.noteRecord);	//跳转去笔记记录页面
 	app.get('/noteDisplayTRY',controller.noteDisplayTRY);	//笔记展示静态页面模型
 	app.get('/noteDisplay',controller.noteDisplay);		//跳转去笔记展示页面
@@ -10,6 +10,9 @@ module.exports = function(app){
 	app.get('/profileTRY',controller.profileTRY);	//个人信息展示静态页面模型
 	app.get('/getProfiles',controller.getProfiles);	//得到某人的个人信息
 	app.get('/getMyBriefProfile',controller.getMyBriefProfile);	//得到我简短的信息
+
+    app.get('/shangdishijiao',controller.findAllUser); //上帝视角，查看所有用户
+    app.get('/allnotes',controller.findAllNotes); //上帝视角，查看所有笔记
 
 	app.post('/register',controller.register);	//注册
 	app.post('/login',controller.login);	//登录

@@ -2074,6 +2074,58 @@ exports.editNote = function(req,res){
     })
 };
 
+//上帝视角，看看有哪些用户注册了。
+exports.findAllUser = function (req, res) {
+    userModel.find({} , function (err, users) {
+        if(err){
+            console.log(err);
+        }else{
+            var briefUsers = [];
+            async.eachSeries(users, function (item,callback){
+                var briefUser = {};
+                briefUser.stuID = item.userID;
+                briefUser.nickname = item.nickname;
+                briefUser.mobilephone = item.mobilephone;
+                briefUser.email = item.email;
+                briefUser.notes = item.myNotes;
+                briefUsers.push(briefUser);
+                callback();
+            }, function (err) {
+                res.send(briefUsers);
+            });
+        }
+    });
+};
+//上帝视角，查看所有的笔记。
+exports.findAllNotes = function (req, res) {
+    pdfModel.find({} , function (err, pdfs) {
+        if(err){
+            console.log(err);
+        }else{
+            var allNotes = [];
+            async.eachSeries(pdfs, function (item,callback){
+                var onePDF = {};
+                onePDF.pdfName = item.pdfName;
+                onePDF.pagesNotes = [];
+                for(var i = 0 ; i < item.pages.length ; i++){
+                    var onePage = item.pages[i];
+                    for(var j = 0 ; j < onePage.notes.length ; j++){
+                        var oneNote = {};
+                        oneNote.title = onePage.notes[j].title;
+                        oneNote.type = (onePage.notes[j].type == 0) ? "笔记" : "问题";
+                        oneNote.related = onePage.notes[j].relatedRangeContent;
+                        oneNote.body = onePage.notes[j].body;
+                        onePDF.pagesNotes.push(oneNote);
+                    }
+                }
+                allNotes.push(onePDF);
+                callback();
+            }, function (err) {
+                res.send(allNotes);
+            });
+        }
+    });
+};
 
 /*
     *****************  这之后是处理行为记录的函数  *****************
@@ -2398,3 +2450,5 @@ recordDelete = function(event, callback){
         }
     });
 };
+
+

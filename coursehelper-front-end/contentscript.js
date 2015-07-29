@@ -18,7 +18,6 @@ limitations under the License.
 /* globals chrome */
 
 'use strict';
-
 var VIEWER_URL = chrome.extension.getURL('content/web/viewer.html');
 
 function getViewerURL(pdf_url) {

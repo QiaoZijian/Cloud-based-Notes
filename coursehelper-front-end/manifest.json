@@ -11,7 +11,7 @@
   "permissions": [
     "fileBrowserHandler",
     "webRequest", "webRequestBlocking",
-    "<all_urls>",
+    "http://course.pku.edu.cn/*",  //为Course定制！！！~
     "tabs",
     "webNavigation",
     "storage",

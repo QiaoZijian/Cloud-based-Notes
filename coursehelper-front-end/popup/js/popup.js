@@ -1,3 +1,4 @@
+ServerIP = "http://127.0.0.1:8880";
 //jQuery time
 window.onload = function(){
 
@@ -73,7 +74,7 @@ window.onload = function(){
         //传给新页面他需要的数据！
         $("#myProfile").click(function () {
             var userID = localStorage.id;
-            var profile_url = "http://127.0.0.1:8880/profile";
+            var profile_url = ServerIP + "/profile";
             chrome.tabs.create({url: profile_url + "?want=" + userID}, function (tab) {
                 chrome.tabs.executeScript(tab.id, {code: 'window.postMessage(' + userID + ',"' + profile_url + '");'});
             });
